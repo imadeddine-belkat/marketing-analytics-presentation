@@ -632,7 +632,7 @@
             display: flex; align-items: flex-end; justify-content: center; text-align: center; padding: 1rem;
         }
         .netflix-card:hover { transform: scale(1.08); z-index: 2; box-shadow: 0 10px 20px rgba(0,0,0,0.8); }
-        .netflix-card .card-title { font-family: 'Arial Black', sans-serif; font-size: 1.2rem; color: rgba(255,255,255,0.9); text-transform: uppercase; line-height: 1.1; text-shadow: 2px 2px 8px rgba(0,0,0,0.9); z-index: 1; margin-bottom: 5px;}
+        .netflix-card { font-family: 'Arial Black', sans-serif; font-size: 1.2rem; color: rgba(255,255,255,0.9); text-transform: uppercase; line-height: 1.1; text-shadow: 2px 2px 8px rgba(0,0,0,0.9); z-index: 1; margin-bottom: 5px;}
         .netflix-progress-bg { position: absolute; bottom: 0; left: 0; width: 100%; height: 4px; background: rgba(255,255,255,0.3); z-index: 2;}
         .netflix-progress-bar { height: 100%; background: #E50914; }
 
@@ -749,8 +749,22 @@
             transform: scale(1.04);
         }
 
-        .spotify-track-list { display: flex; flex-direction: column; }
+
         .spotify-track-header { display: grid; grid-template-columns: 40px 1fr 120px 50px; padding: 0.5rem 1rem; border-bottom: 1px solid rgba(255,255,255,0.1); margin-bottom: 0.5rem; color: #b3b3b3; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em;}
+        .spotify-track-list { display: flex; flex-direction: column; gap: 0.5rem; overflow-y: auto; padding-bottom: 1rem; scrollbar-width: none;}
+        .spotify-track-list-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+
+            /* Show only 3 items worth of height */
+            max-height: calc(3 * 70px + 2 * 0.5rem); /* adjust 70px to item height */
+
+            overflow-y: auto;
+            overflow-x: hidden;
+
+            scrollbar-width: none;
+        }
         .spotify-track { display: grid; grid-template-columns: 40px 1fr 120px 50px; align-items: center; padding: 0.5rem 1rem; border-radius: 4px; transition: background 0.2s; cursor: pointer; }
         .spotify-track:hover { background: rgba(255,255,255,0.1); }
         .spotify-track:hover .track-num span.num { display: none; }
@@ -1306,15 +1320,23 @@
                     </div>
                     <h2 class="netflix-section-title">Top Picks for You</h2>
                     <div class="netflix-grid">
-                        <div class="netflix-card" style="background: url('https://static1.tribute.ca/poster/660x980/the-crown-netflix-121503.jpg'); background-size: cover; background-position: center;">
+                        <div class="netflix-card" style="background: url('https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p14652182_b_v8_aa.jpg'); background-size: cover; background-position: center;">
                             <div class="netflix-progress-bg"><div class="netflix-progress-bar" style="width: 85%;"></div></div>
                         </div>
-                        <div class="netflix-card" style="background: url('https://m.media-amazon.com/images/I/91iNuP5OJ7S._AC_UF894,1000_QL80_.jpg'); background-size: cover; background-position: center;">
+                        <div class="netflix-card" style="background: url('https://image.tmdb.org/t/p/original/rueY4slMeKtTGitm0raFUJvgaa5.jpg'); background-size: cover; background-position: center;">
                             <div class="netflix-progress-bg"><div class="netflix-progress-bar" style="width: 15%;"></div></div>
                         </div>
-                        <div class="netflix-card" style="background: url('https://dnm.nflximg.net/api/v6/mAcAr9TxZIVbINe88xb3Teg5_OA/AAAABVTynECAebarq147fY0p6EuxkYt8UYFoqAeebr4iy4g5RgUf0QyUDLTmGWUrL5NRMEjm7tg1F1fBfYwn2jAHoK3g87V0TC9ksP2FROWXDw.jpg?r=609'); background-size: cover; background-position: center;">
+                        <div class="netflix-card" style="background: url('https://i.ebayimg.com/images/g/MCsAAOSwS6Rg3iOo/s-l1200.jpg'); background-size: cover; background-position: center;">
                         </div>
-                        <div class="netflix-card" style="background: url('https://image.tmdb.org/t/p/original/m73bD8VjibSKuTWg597GQVyVhSb.jpg'); background-size: cover; background-position: center;">
+                        <div class="netflix-card" style="background: url('https://m.media-amazon.com/images/I/61Bn5CFCpJL._AC_UF1000,1000_QL80_.jpg'); background-size: cover; background-position: center;">
+                        </div>
+                        <div class="netflix-card" style="background: url('https://static0.srcdn.com/wordpress/wp-content/uploads/2022/10/The-Midnight-Club-Movie-Poster.jpg?w=1200&h=1200&fit=crop'); background-size: cover; background-position: center;">
+                        </div>
+                        <div class="netflix-card" style="background: url('https://m.media-amazon.com/images/I/61AyhhCwfLL.jpg'); background-size: cover; background-position: center;">
+                        </div>
+                        <div class="netflix-card" style="background: url('https://m.media-amazon.com/images/I/61Oaia-ctkL._AC_UF1000,1000_QL80_.jpg'); background-size: cover; background-position: center;">
+                        </div>
+                        <div class="netflix-card" style="background: url('https://m.media-amazon.com/images/M/MV5BMjUwY2NmZDItZjdjNC00ZGQ3LTk2NTEtNjY5NTQxOGYwNGY4XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg'); background-size: cover; background-position: center;">
                         </div>
                     </div>
                 </div>
@@ -1392,42 +1414,81 @@
                             <div>Album</div>
                             <div style="text-align: right;"><svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8z"></path><path d="M8 3.25a.75.75 0 0 1 .75.75v3.25H11a.75.75 0 0 1 0 1.5H7.25V4A.75.75 0 0 1 8 3.25z"></path></svg></div>
                         </div>
-                        <div class="spotify-track">
-                            <div class="track-num"><span class="num">1</span><span class="play-icon">▶</span></div>
-                            <div class="track-info-wrapper">
-                                <img src="https://i.scdn.co/image/ab67616d0000b2738863bc11d2aa12b54f5aeb36" class="track-img" alt="Track 1">
-                                <div class="track-info">
-                                    <span class="track-name active">Escape From LA</span>
-                                    <span class="track-artist">The Weeknd</span>
+                        <div class="spotify-track-list-grid">
+                            <div class="spotify-track">
+                                <div class="track-num"><span class="num">1</span><span class="play-icon">▶</span></div>
+                                <div class="track-info-wrapper">
+                                    <img src="https://i.scdn.co/image/ab67616d0000b2738863bc11d2aa12b54f5aeb36" class="track-img" alt="Track 1">
+                                    <div class="track-info">
+                                        <span class="track-name active">Escape From LA</span>
+                                        <span class="track-artist">The Weeknd</span>
+                                    </div>
                                 </div>
+                                <div class="track-album">After Hours</div>
+                                <div class="track-duration">5:57</div>
                             </div>
-                            <div class="track-album">After Hours</div>
-                            <div class="track-duration">5:57</div>
-                        </div>
-                        <div class="spotify-track">
-                            <div class="track-num"><span class="num">2</span><span class="play-icon">▶</span></div>
-                            <div class="track-info-wrapper">
-                                <img src="https://i.scdn.co/image/ab67616d0000b2736c4d86597c81e7c35b3e2906" class="track-img" alt="Track 2">
-                                <div class="track-info">
-                                    <span class="track-name">Tsswirtek</span>
-                                    <span class="track-artist">Draganov</span>
+                            <div class="spotify-track">
+                                <div class="track-num"><span class="num">2</span><span class="play-icon">▶</span></div>
+                                <div class="track-info-wrapper">
+                                    <img src="https://i.scdn.co/image/ab67616d0000b2736c4d86597c81e7c35b3e2906" class="track-img" alt="Track 2">
+                                    <div class="track-info">
+                                        <span class="track-name">Tsswirtek</span>
+                                        <span class="track-artist">Draganov</span>
+                                    </div>
                                 </div>
+                                <div class="track-album">Tsswirtek</div>
+                                <div class="track-duration">2:28</div>
                             </div>
-                            <div class="track-album">Tsswirtek</div>
-                            <div class="track-duration">2:28</div>
-                        </div>
-                        <div class="spotify-track">
-                            <div class="track-num"><span class="num">3</span><span class="play-icon">▶</span></div>
-                            <div class="track-info-wrapper">
-                                <img src="https://i.scdn.co/image/ab67616d0000b273c7e9642fd913efe83a4e0659" class="track-img" alt="Track 3">
-                                <div class="track-info">
-                                    <span class="track-name">Gold</span>
-                                    <span class="track-artist">CASHFORGOLD, Tim Schaufert</span>
+                            <div class="spotify-track">
+                                <div class="track-num"><span class="num">3</span><span class="play-icon">▶</span></div>
+                                <div class="track-info-wrapper">
+                                    <img src="https://i.scdn.co/image/ab67616d0000b273c7e9642fd913efe83a4e0659" class="track-img" alt="Track 3">
+                                    <div class="track-info">
+                                        <span class="track-name">Gold</span>
+                                        <span class="track-artist">CASHFORGOLD, Tim Schaufert</span>
+                                    </div>
                                 </div>
+                                <div class="track-album">Gold</div>
+                                <div class="track-duration">3:56</div>
                             </div>
-                            <div class="track-album">Gold</div>
-                            <div class="track-duration">3:56</div>
+                            <div class="spotify-track">
+                                <div class="track-num"><span class="num">4</span><span class="play-icon">▶</span></div>
+                                <div class="track-info-wrapper">
+                                    <img src="https://sportplaylists.com/wp-content/uploads/2025/11/Dave-5000x5000-hi-res-art-copy-scaled.jpg" class="track-img" alt="Track 1">
+                                    <div class="track-info">
+                                        <span class="track-name active">Raindance (feat. Tems)</span>
+                                        <span class="track-artist">Dave, Tems</span>
+                                    </div>
+                                </div>
+                                <div class="track-album">The Boy Who Played The Harp</div>
+                                <div class="track-duration">3:40</div>
+                            </div>
+                            <div class="spotify-track">
+                                <div class="track-num"><span class="num">5</span><span class="play-icon">▶</span></div>
+                                <div class="track-info-wrapper">
+                                    <img src="https://cdn-images.dzcdn.net/images/cover/16eda4a51d9480a254b516827e622e5e/1900x1900-000000-80-0-0.jpg" class="track-img" alt="Track 2">
+                                    <div class="track-info">
+                                        <span class="track-name">Manos Rotas</span>
+                                        <span class="track-artist">DELLAFUENTE, Morad</span>
+                                    </div>
+                                </div>
+                                <div class="track-album">Manos Rotas</div>
+                                <div class="track-duration">2:49</div>
+                            </div>
+                            <div class="spotify-track">
+                                <div class="track-num"><span class="num">6</span><span class="play-icon">▶</span></div>
+                                <div class="track-info-wrapper">
+                                    <img src="https://cdn-images.dzcdn.net/images/cover/9c6b45206bc6757956793783e4ba4e85/500x500.jpg" class="track-img" alt="Track 3">
+                                    <div class="track-info">
+                                        <span class="track-name">Silently Waiting</span>
+                                        <span class="track-artist">Marshall Watson Music</span>
+                                    </div>
+                                </div>
+                                <div class="track-album">Soft Murmurs</div>
+                                <div class="track-duration">3:49</div>
+                            </div>
                         </div>
+
                     </div>
                 </div>
             </div>

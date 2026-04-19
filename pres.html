@@ -9,8 +9,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&display=swap" rel="stylesheet">
 
     <style>
+        @font-face {
+            font-family: 'StrangerFont';
+            src: url('fonts/Benguiat Bold.ttf') format('truetype');
+        }
         /* CSS Variables - Luxury Palette */
         :root {
             --bg-primary: #FDFCF9;
@@ -495,7 +500,7 @@
             font-size: 1.25rem;
         }
 
-        /* Case Studies Showroom */
+        /* Case Studies Showroom - High Fidelity Native UI */
         .showroom {
             display: flex;
             flex-direction: column;
@@ -526,61 +531,243 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            border-left: 1px solid var(--border-light);
         }
 
         /* HQ Amazon UI Clone */
-        .ui-amazon-hq { background: #fff; width: 100%; height: 100%; padding: 3rem 2rem; font-family: Arial, sans-serif; color: #0F1111; }
-        .ui-amazon-hq h2 { font-size: 1.1rem; color: #cc6600; font-family: Arial, sans-serif; margin-bottom: 1rem; border-bottom: 1px solid #ddd; padding-bottom: 0.5rem; font-weight: bold; }
-        .amazon-grid { display: flex; gap: 1.5rem; overflow-x: auto; padding-bottom: 1rem;}
-        .amazon-card { min-width: 160px; cursor: pointer; }
-        .amazon-img { height: 160px; background: #F7F7F7; border: 1px solid #EAEAEA; display: flex; align-items: center; justify-content: center; margin-bottom: 0.5rem; transition: transform 0.2s;}
-        .amazon-card:hover .amazon-img { transform: scale(1.02); }
-        .amazon-img svg { width: 50px; fill: #D5D9D9; }
-        .amazon-title { font-size: 0.85rem; color: #007185; line-height: 1.3; height: 2.6em; overflow: hidden; margin-bottom: 0.2rem;}
-        .amazon-title:hover { color: #C60; text-decoration: underline; }
-        .amazon-rating { color: #FFA41C; font-size: 0.8rem; margin-bottom: 0.2rem; }
-        .amazon-rating span { color: #007185; margin-left: 0.2rem;}
-        .amazon-price { font-size: 1.2rem; font-weight: bold; color: #B12704; }
-        .amazon-price sup { font-size: 0.75rem; }
+        .ui-amazon-hq { background: #fff; width: 100%; height: 100%; padding: 2.5rem; font-family: Inter, Arial, sans-serif; color: #0F1111; }
+        .ui-amazon-hq h2 { font-size: 1.15rem; color: #c60; font-weight: 700; margin-bottom: 1rem; border-bottom: 1px solid #ddd; padding-bottom: 0.5rem; }
+        .amazon-grid { display: flex; gap: 1.5rem; overflow-x: auto; padding-bottom: 1rem; scrollbar-width: none;}
+        .amazon-card { min-width: 180px; max-width: 180px; cursor: pointer; }
+        .amazom-section-title {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #111;
+            margin: 1.2rem 0 0.6rem 0;
+            letter-spacing: 0;
+        }
+        .amazon-img { height: 180px; display: flex; align-items: center; justify-content: center; margin-bottom: 0.5rem; padding: 15px; background: #f8f8f8; transition: transform 0.2s; border: 1px solid #eee; overflow: hidden; }
+        .amazon-img img { max-width: 100%; max-height: 100%; object-fit: contain; mix-blend-mode: multiply; transition: transform 0.2s; }
+        .amazon-card:hover .amazon-img img { transform: scale(1.08); }
+        .amazon-title { font-size: 0.9rem; color: #007185; line-height: 1.4; height: 3.9em; overflow: hidden; margin-bottom: 0.2rem; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; }
+        .amazon-card:hover .amazon-title { color: #C60; text-decoration: underline; }
+        .amazon-rating {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .stars {
+            color: #f0c14b; /* Amazon yellow */
+            letter-spacing: 1px;
+        }
+
+        .stars .empty {
+            color: #ccc;
+        }
+
+        .count {
+            color: #007185; /* Amazon link blue */
+            cursor: pointer;
+        }
+        .amazon-price { display: flex; align-items: flex-start; margin-top: 0.2rem;}
+        .amazon-price .currency { font-size: 0.8rem; margin-top: 0.2rem;}
+        .amazon-price .whole { font-size: 1.4rem; font-weight: 600; color: #0F1111; }
+        .amazon-price .fraction { font-size: 0.8rem; margin-top: 0.2rem;}
+        .amazon-prime img {
+            height: 30px;
+            width: auto;
+            object-fit: contain;
+            display: block;
+        }
 
         /* HQ Netflix UI Clone */
-        .ui-netflix-hq { background: #141414; width: 100%; height: 100%; padding: 2rem; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; color: #fff; }
-        .netflix-hero { background: linear-gradient(to top, #141414 0%, transparent 100%), #333; height: 180px; border-radius: 4px; margin-bottom: 1.5rem; padding: 1.5rem; display:flex; flex-direction: column; justify-content: flex-end;}
-        .netflix-hero-title { font-size: 2rem; font-weight: 800; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); margin-bottom: 0.5rem;}
-        .netflix-tags { font-size: 0.75rem; color: #fff; font-weight: bold; display: flex; gap: 0.8rem; align-items: center;}
+        .ui-netflix-hq { background: #141414; width: 100%; height: 100%; padding: 2.5rem; font-family: "Inter", "Roboto", sans-serif; color: #e5e5e5; }
+        .netflix-hero {
+            background:
+                    linear-gradient(to top, #141414 0%, rgba(20,20,20,0.4) 80%),
+                    radial-gradient(circle at 70% 20%, #5e0a0a, #141414 70%);
+
+            height: 220px;
+            border-radius: 4px;
+            margin-bottom: 1.5rem;
+            padding: 1.5rem;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+
+            position: relative;
+            overflow: hidden;
+
+            border: 1px solid #333;
+        }
+        .netflix-hero::before {
+            content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+            background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.1) 2px, rgba(0,0,0,0.1) 4px);
+            pointer-events: none; z-index: 0;
+        }
+        .netflix-hero-title { font-family: 'StrangerFont', serif; font-size: 2.8rem; font-weight: 900; text-shadow: 0 0 5px black, 0 0 15px #e50914; margin-bottom: 0.2rem; color: #e50914; letter-spacing: 6px; z-index: 1; text-transform: uppercase}
+        .netflix-hero-title span { color: #e50914; }
+        .netflix-section-title {
+            font-family: Inter, Helvetica, Arial, sans-serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #ffffff;
+            letter-spacing: 0.3px;
+            margin: 1.5rem 0 0.8rem;
+            opacity: 0.9;
+        }
+        .netflix-tags { font-size: 0.8rem; color: #fff; font-weight: bold; display: flex; gap: 0.8rem; align-items: center; text-shadow: 1px 1px 2px #000; z-index: 1;}
         .netflix-match { color: #46d369; }
-        .netflix-box { border: 1px solid rgba(255,255,255,0.4); padding: 0.1rem 0.3rem; border-radius: 2px; }
-        .ui-netflix-hq h2 { font-size: 1.1rem; font-weight: bold; margin-bottom: 0.8rem; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;}
-        .netflix-grid { display: flex; gap: 0.5rem; overflow-x: auto; padding-bottom: 1rem;}
-        .netflix-card { min-width: 140px; height: 190px; background: #222; border-radius: 4px; transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1); cursor: pointer; display: flex; align-items: center; justify-content: center;}
-        .netflix-card:hover { transform: scale(1.1); z-index: 2; box-shadow: 0 10px 20px rgba(0,0,0,0.8); background: #333; border: 1px solid #444;}
-        .netflix-card svg { width: 40px; opacity: 0.2; }
+        .netflix-box { border: 1px solid rgba(255,255,255,0.6); padding: 0.1rem 0.4rem; border-radius: 2px; color: #ddd; font-weight: normal; font-size: 0.7rem;}
+        .ui-netflix-hq h2 { font-size: 1.25rem; font-weight: 700; margin-bottom: 0.8rem; color: #e5e5e5;}
+        .netflix-grid { display: flex; gap: 0.5rem; overflow-x: auto; padding-bottom: 1rem; scrollbar-width: none;}
+        .netflix-card {
+            min-width: 150px; height: 210px; background-color: #222; background-size: cover; background-position: center;
+            border-radius: 4px; transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1); cursor: pointer; position: relative; overflow: hidden;
+            display: flex; align-items: flex-end; justify-content: center; text-align: center; padding: 1rem;
+        }
+        .netflix-card:hover { transform: scale(1.08); z-index: 2; box-shadow: 0 10px 20px rgba(0,0,0,0.8); }
+        .netflix-card .card-title { font-family: 'Arial Black', sans-serif; font-size: 1.2rem; color: rgba(255,255,255,0.9); text-transform: uppercase; line-height: 1.1; text-shadow: 2px 2px 8px rgba(0,0,0,0.9); z-index: 1; margin-bottom: 5px;}
+        .netflix-progress-bg { position: absolute; bottom: 0; left: 0; width: 100%; height: 4px; background: rgba(255,255,255,0.3); z-index: 2;}
+        .netflix-progress-bar { height: 100%; background: #E50914; }
 
         /* HQ Spotify UI Clone */
-        .ui-spotify-hq { background: linear-gradient(180deg, #1f1f1f 0%, #121212 100%); width: 100%; height: 100%; padding: 2.5rem; font-family: 'Inter', sans-serif; color: #fff; }
-        .spotify-header { display: flex; gap: 1.5rem; align-items: flex-end; margin-bottom: 2rem; }
-        .spotify-cover { width: 140px; height: 140px; background: linear-gradient(135deg, #450af5, #c4efd9); box-shadow: 0 8px 24px rgba(0,0,0,0.5); display: flex; align-items: center; justify-content: center;}
-        .spotify-cover svg { width: 50px; fill: #fff; opacity: 0.8;}
-        .dw-info { display: flex; flex-direction: column; gap: 0.2rem;}
+        .ui-spotify-hq { background: linear-gradient(180deg, #2b2045 0%, #121212 250px); width: 100%; height: 100%; padding: 2.5rem; font-family: 'Inter', -apple-system, sans-serif; color: #fff; }
+        .spotify-header { display: flex; gap: 1.5rem; align-items: flex-end; margin-bottom: 1.5rem; }
+        .spotify-cover { width: 160px; height: 160px; box-shadow: 0 8px 24px rgba(0,0,0,0.5); object-fit: cover; }
+        .dw-info { display: flex; flex-direction: column; gap: 0.3rem;}
         .spotify-type { font-size: 0.75rem; text-transform: uppercase; font-weight: 700; letter-spacing: 0.05em; }
-        .spotify-title { font-size: 3rem; font-weight: 900; margin: 0; letter-spacing: -0.04em; line-height: 1; font-family: 'Inter', sans-serif;}
-        .spotify-desc { font-size: 0.85rem; color: #b3b3b3; margin-top: 0.5rem; }
+        .spotify-title { font-size: 3.5rem; font-weight: 900; margin: 0; letter-spacing: -0.04em; line-height: 1.1;}
+        .spotify-desc { font-size: 0.85rem; color: #b3b3b3; margin-top: 0.2rem; font-weight: 400; }
         .spotify-meta { font-size: 0.85rem; font-weight: 600; margin-top: 0.2rem;}
         .spotify-meta span { color: #b3b3b3; font-weight: normal; }
 
-        .spotify-controls { margin-bottom: 1.5rem; }
-        .spotify-play { width: 56px; height: 56px; background: #1ed760; border-radius: 50%; display: flex; justify-content: center; align-items: center; cursor: pointer; transition: transform 0.2s, background 0.2s;}
-        .spotify-play:hover { transform: scale(1.05); background: #1fdf64; }
-        .spotify-play::before { content: '▶'; color: #000; font-size: 1.5rem; margin-left: 4px;}
+        /* Container styling */
+        .spotify-controls {
+            display: flex;
+            align-items: center;
+            gap: 24px; /* Adjusted gap to match screenshot */
+            padding: 24px;
+        }
 
-        .spotify-track-list { display: flex; flex-direction: column; gap: 0.2rem; }
-        .spotify-track { display: grid; grid-template-columns: 30px 1fr 40px; align-items: center; padding: 0.6rem; border-radius: 4px; transition: background 0.2s; cursor: pointer; }
+        /* Play Button - The iconic Spotify Green Circle */
+        .spotify-play {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background-color: #1ed760;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: transform 0.2s ease, background-color 0.2s ease;
+            box-shadow: 0 8px 8px rgba(0,0,0,0.3);
+        }
+
+        .spotify-play:hover {
+            transform: scale(1.04);
+            background-color: #1fdf64;
+        }
+
+        .spotify-play:active {
+            transform: scale(1);
+            background-color: #1db954;
+        }
+
+        .spotify-play svg {
+            width: 24px;
+            height: 24px;
+            fill: #000;
+            /* Small offset to perfectly center the play triangle optically */
+            margin-left: 3px;
+        }
+
+        /* Thumbnail Image Styling */
+        .spotify-thumbnail {
+            width: 34px;
+            height: 34px;
+            border: 2px solid #a7a7a7;
+            border-radius: 6px;
+            padding: 2px;
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: border-color 0.2s ease, transform 0.2s ease;
+        }
+
+        .spotify-thumbnail:hover {
+            border-color: #fff;
+            transform: scale(1.04);
+        }
+
+        .spotify-thumbnail img {
+            width: 100%;
+            height: 100%;
+            border-radius: 2px;
+            object-fit: cover;
+        }
+
+        /* Standard Icon Styling */
+        .spotify-icon, .spotify-added {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #b3b3b3; /* Spotify gray */
+            cursor: pointer;
+            transition: color 0.2s ease, transform 0.2s ease;
+        }
+
+        .spotify-icon:hover {
+            color: #ffffff; /* Brighten on hover */
+        }
+
+        .spotify-icon:active, .spotify-added:active {
+            transform: scale(0.9);
+        }
+
+        /* Default SVG sizing */
+        .spotify-icon svg, .spotify-added svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        /* SVG Color Handling */
+        .svg-fill { fill: currentColor; }
+        .svg-stroke { fill: none; stroke: currentColor; }
+
+        /* Active state scale effect */
+        .spotify-added.active:hover {
+            transform: scale(1.04);
+        }
+
+        .spotify-track-list { display: flex; flex-direction: column; }
+        .spotify-track-header { display: grid; grid-template-columns: 40px 1fr 120px 50px; padding: 0.5rem 1rem; border-bottom: 1px solid rgba(255,255,255,0.1); margin-bottom: 0.5rem; color: #b3b3b3; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em;}
+        .spotify-track { display: grid; grid-template-columns: 40px 1fr 120px 50px; align-items: center; padding: 0.5rem 1rem; border-radius: 4px; transition: background 0.2s; cursor: pointer; }
         .spotify-track:hover { background: rgba(255,255,255,0.1); }
-        .track-num { color: #b3b3b3; font-size: 0.9rem; text-align: center; }
+        .spotify-track:hover .track-num span.num { display: none; }
+        .spotify-track:hover .track-num span.play-icon { display: block; }
+        .track-num { color: #b3b3b3; font-size: 0.9rem; }
+        .track-num span.play-icon { display: none; color: #fff; font-size: 0.8rem; margin-left: -2px;}
+        .track-info-wrapper { display: flex; align-items: center; gap: 1rem; }
+
+        .track-img { width: 40px; height: 40px; border-radius: 2px; object-fit: cover; box-shadow: 0 2px 4px rgba(0,0,0,0.5);}
+
         .track-info { display: flex; flex-direction: column; }
-        .track-name { font-size: 1rem; color: #fff; font-weight: 500;}
-        .track-artist { font-size: 0.85rem; color: #b3b3b3; }
-        .track-duration { color: #b3b3b3; font-size: 0.9rem; }
+        .track-name { font-size: 0.95rem; color: #fff; font-weight: 400; margin-bottom: 0.1rem;}
+        .track-name.active { color: #1ed760; }
+        .track-artist, .track-album { font-size: 0.8rem; color: #b3b3b3; }
+        .track-album { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; padding-right: 1rem; }
+        .track-artist:hover, .track-album:hover { color: #fff; text-decoration: underline; }
+        .track-duration { color: #b3b3b3; font-size: 0.85rem; text-align: right; }
 
         /* Critical Analysis / FAQ */
         .faq-item {
@@ -1033,11 +1220,11 @@
     </table>
 </section>
 
-<!-- Case Studies / Showroom (High-Fidelity) -->
+<!-- Case Studies / Showroom (High-Fidelity UI Clones) -->
 <section id="showroom" class="reveal">
     <div class="section-header">
         <h2>The Showroom</h2>
-        <span class="text-sm text-muted">Real-World High-Fidelity Architectures</span>
+        <span class="text-sm text-muted">Native UI Architectures</span>
     </div>
 
     <div class="showroom">
@@ -1050,31 +1237,49 @@
             </div>
             <div class="mockup-ui">
                 <div class="ui-amazon-hq">
-                    <h2>Customers who bought this item also bought</h2>
+                    <h2 class="amazom-section-title">Other products viewed by customers who viewed this product.</h2>
                     <div class="amazon-grid">
                         <div class="amazon-card">
                             <div class="amazon-img">
-                                <svg viewBox="0 0 24 24"><path d="M4 6h16v12H4z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 10h8v4H8z" fill="#ccc"/></svg>
+                                <img src="https://m.media-amazon.com/images/I/71yAKNEA-hL._AC_SL1500_.jpg" alt="Razer BlackShark V2 HyperSpeed">
                             </div>
-                            <div class="amazon-title">Sony WH-1000XM4 Wireless Premium Noise Canceling...</div>
-                            <div class="amazon-rating">★★★★☆ <span>42,109</span></div>
-                            <div class="amazon-price"><sup>$</sup>298<sup>00</sup></div>
+                            <div class="amazon-title">Razer BlackShark V2 HyperSpeed - PC Wireless Ultra Lightweight E-Sports Headset (280g, HyperClear Super Wideband Mic, TriForce Titanium 50mm Driver) Black</div>
+                            <div class="amazon-rating">
+                                <span class="stars">★★★★<span class="empty">★</span></span>
+                                <span class="count">42,109</span>
+                            </div>
+                            <div class="amazon-price"><span class="currency">$</span><span class="whole">129</span><span class="fraction">99</span></div>
+                            <div class="amazon-prime">
+                                <img src="https://m.media-amazon.com/images/G/41/marketing/prime/2022PrimeBrand/Logos/Prime_Logo_RGB_Prime_Blue_MASTER._CB542734514_.png" alt="Amazon Prime">
+                            </div>
                         </div>
                         <div class="amazon-card">
                             <div class="amazon-img">
-                                <svg viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="2" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+                                <img src="https://m.media-amazon.com/images/I/71OG0eQcj8L._AC_SL1500_.jpg" alt="Apple AirPods Pro">
                             </div>
-                            <div class="amazon-title">Apple AirPods Pro (2nd Gen) Wireless Earbuds...</div>
-                            <div class="amazon-rating">★★★★★ <span>112,400</span></div>
-                            <div class="amazon-price"><sup>$</sup>239<sup>00</sup></div>
+                            <div class="amazon-title">HyperX Cloud III S Wireless Black-Red Gaming Headset</div>
+                            <div class="amazon-rating">
+                                <span class="stars">★★★★★<span class="empty"></span></span>
+                                <span class="count">112,432</span>
+                            </div>
+                            <div class="amazon-price"><span class="currency">$</span><span class="whole">249</span><span class="fraction">99</span></div>
+                            <div class="amazon-prime">
+                                <img src="https://m.media-amazon.com/images/G/41/marketing/prime/2022PrimeBrand/Logos/Prime_Logo_RGB_Prime_Blue_MASTER._CB542734514_.png" alt="Amazon Prime">
+                            </div>
                         </div>
                         <div class="amazon-card">
                             <div class="amazon-img">
-                                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="3" fill="#ccc"/></svg>
+                                <img src="https://m.media-amazon.com/images/I/71kwgiNe1CL._AC_SL1500_.jpg" alt="Bose Headphones">
                             </div>
-                            <div class="amazon-title">Bose QuietComfort 45 Bluetooth Wireless Noise...</div>
-                            <div class="amazon-rating">★★★★☆ <span>18,932</span></div>
-                            <div class="amazon-price"><sup>$</sup>279<sup>00</sup></div>
+                            <div class="amazon-title">SteelSeries Arctis Nova 3P Wireless Black Gaming Headset - Control via Mobile App - 40 Hours Battery Life - Compatible with PS5, PS4, PC, Switch, and Mobile</div>
+                            <div class="amazon-rating">
+                                <span class="stars">★★★★<span class="empty">★</span></span>
+                                <span class="count">18,932</span>
+                            </div>
+                            <div class="amazon-price"><span class="currency">$</span><span class="whole">109</span><span class="fraction">99</span></div>
+                            <div class="amazon-prime">
+                                <img src="https://m.media-amazon.com/images/G/41/marketing/prime/2022PrimeBrand/Logos/Prime_Logo_RGB_Prime_Blue_MASTER._CB542734514_.png" alt="Amazon Prime">
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1090,28 +1295,30 @@
             </div>
             <div class="mockup-ui">
                 <div class="ui-netflix-hq">
-                    <div class="netflix-hero">
+                    <div class="netflix-hero"  style="background: url('https://m.media-amazon.com/images/M/MV5BODNiMmJiNTgtNjU2ZC00YWI4LTk4NTctZmQzM2RjMDRlMGZhXkEyXkFqcGc@._V1_.jpg')center 20% / cover no-repeat;">
                         <div class="netflix-hero-title">STRANGER THINGS</div>
                         <div class="netflix-tags">
                             <span class="netflix-match">98% Match</span>
-                            <span>2022</span>
+                            <span>2016</span>
                             <span class="netflix-box">TV-14</span>
-                            <span>4 Seasons</span>
+                            <span>5 Seasons</span>
                         </div>
                     </div>
-                    <h2>Top Picks for You</h2>
+                    <h2 class="netflix-section-title">Top Picks for You</h2>
                     <div class="netflix-grid">
-                        <div class="netflix-card">
-                            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+                        <div class="netflix-card" style="background: linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0.1)), url('https://static1.tribute.ca/poster/660x980/the-crown-netflix-121503.jpg'); background-size: cover; background-position: center;">
+                            <div class="card-title">THE CROWN</div>
+                            <div class="netflix-progress-bg"><div class="netflix-progress-bar" style="width: 85%;"></div></div>
                         </div>
-                        <div class="netflix-card">
-                            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+                        <div class="netflix-card" style="background: linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0.1)), url('https://m.media-amazon.com/images/I/91iNuP5OJ7S._AC_UF894,1000_QL80_.jpg'); background-size: cover; background-position: center;">
+                            <div class="card-title" style="color: #e50914;">MONEY<br>HEIST</div>
+                            <div class="netflix-progress-bg"><div class="netflix-progress-bar" style="width: 15%;"></div></div>
                         </div>
-                        <div class="netflix-card">
-                            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+                        <div class="netflix-card" style="background: linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0.1)), url('https://dnm.nflximg.net/api/v6/mAcAr9TxZIVbINe88xb3Teg5_OA/AAAABVTynECAebarq147fY0p6EuxkYt8UYFoqAeebr4iy4g5RgUf0QyUDLTmGWUrL5NRMEjm7tg1F1fBfYwn2jAHoK3g87V0TC9ksP2FROWXDw.jpg?r=609'); background-size: cover; background-position: center;">
+                            <div class="card-title" style="color: #fff;">SQUID<br>GAME</div>
                         </div>
-                        <div class="netflix-card">
-                            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+                        <div class="netflix-card" style="background: linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0.1)), url('https://image.tmdb.org/t/p/original/m73bD8VjibSKuTWg597GQVyVhSb.jpg'); background-size: cover; background-position: center;">
+                            <div class="card-title">OZARK</div>
                         </div>
                     </div>
                 </div>
@@ -1128,43 +1335,102 @@
             <div class="mockup-ui">
                 <div class="ui-spotify-hq">
                     <div class="spotify-header">
-                        <div class="spotify-cover">
-                            <svg viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
-                        </div>
+                        <img src="data:image/jpeg;base64,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" alt="Discover Weekly" class="spotify-cover">
                         <div class="dw-info">
                             <span class="spotify-type">Playlist</span>
                             <h1 class="spotify-title">Discover Weekly</h1>
-                            <p class="spotify-desc">Your weekly mixtape of fresh music. Enjoy new discoveries and deep cuts chosen just for you.</p>
+                            <p class="spotify-desc">Your shortcut to hidden gems, deep cuts, and future faves, updated every Monday. You’ll know when you hear it.</p>
                             <div class="spotify-meta">Spotify <span>• 30 songs, 1 hr 45 min</span></div>
                         </div>
                     </div>
                     <div class="spotify-controls">
-                        <div class="spotify-play"></div>
+                        <!-- 1. Play Button -->
+                        <div class="spotify-play">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M8 5v14l11-7z"/>
+                            </svg>
+                        </div>
+
+                        <!-- 2. Album Thumbnail (New) -->
+                        <div class="spotify-thumbnail">
+                            <!-- Using an abstract image that resembles the fire/smoke in the screenshot -->
+                            <img src="https://images.unsplash.com/photo-1618331835717-801e976710b2?auto=format&fit=crop&w=100&q=80" alt="Album Art">
+                        </div>
+
+                        <!-- 3. Shuffle Icon -->
+                        <div class="spotify-icon">
+                            <svg viewBox="0 0 24 24" class="svg-fill">
+                                <path d="M16 3h5v5h-2V6.41l-4.29 4.3-1.42-1.42 4.3-4.29H16V3zM4 5h3l5 7-5 7H4l5-7-5-7zm10 6l1.42-1.42L19 13.17V11h2v5h-5v-2h2.17L14 11z"/>
+                            </svg>
+                        </div>
+
+                        <!-- 4. Added/Checkmark (Green Circle) -->
+                        <div class="spotify-added active">
+                            <svg viewBox="0 0 24 24">
+                                <circle cx="12" cy="12" r="12" fill="#1ed760"/>
+                                <path d="M9 16.2l-3.5-3.5L4 14.2l5 5 11-11-1.5-1.5z" fill="#000"/>
+                            </svg>
+                        </div>
+
+                        <!-- 5. Download Icon (Circled Arrow) -->
+                        <div class="spotify-icon">
+                            <svg viewBox="0 0 24 24" class="svg-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10.5"/>
+                                <path d="M12 7.5v9M8.5 13l3.5 3.5 3.5-3.5"/>
+                            </svg>
+                        </div>
+
+                        <!-- 6. Ellipsis -->
+                        <div class="spotify-icon">
+                            <svg viewBox="0 0 24 24" class="svg-fill">
+                                <circle cx="4.5" cy="12" r="2"/>
+                                <circle cx="12" cy="12" r="2"/>
+                                <circle cx="19.5" cy="12" r="2"/>
+                            </svg>
+                        </div>
                     </div>
                     <div class="spotify-track-list">
-                        <div class="spotify-track">
-                            <div class="track-num">1</div>
-                            <div class="track-info">
-                                <span class="track-name">Midnight City</span>
-                                <span class="track-artist">M83</span>
-                            </div>
-                            <div class="track-duration">4:03</div>
+                        <div class="spotify-track-header">
+                            <div>#</div>
+                            <div>Title</div>
+                            <div>Album</div>
+                            <div style="text-align: right;"><svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8z"></path><path d="M8 3.25a.75.75 0 0 1 .75.75v3.25H11a.75.75 0 0 1 0 1.5H7.25V4A.75.75 0 0 1 8 3.25z"></path></svg></div>
                         </div>
                         <div class="spotify-track">
-                            <div class="track-num">2</div>
-                            <div class="track-info">
-                                <span class="track-name">Walking On A Dream</span>
-                                <span class="track-artist">Empire of the Sun</span>
+                            <div class="track-num"><span class="num">1</span><span class="play-icon">▶</span></div>
+                            <div class="track-info-wrapper">
+                                <img src="https://i.scdn.co/image/ab67616d0000b2738863bc11d2aa12b54f5aeb36" class="track-img" alt="Track 1">
+                                <div class="track-info">
+                                    <span class="track-name active">Escape From LA</span>
+                                    <span class="track-artist">The Weeknd</span>
+                                </div>
                             </div>
-                            <div class="track-duration">3:16</div>
+                            <div class="track-album">After Hours</div>
+                            <div class="track-duration">5:57</div>
                         </div>
                         <div class="spotify-track">
-                            <div class="track-num">3</div>
-                            <div class="track-info">
-                                <span class="track-name">Electric Feel</span>
-                                <span class="track-artist">MGMT</span>
+                            <div class="track-num"><span class="num">2</span><span class="play-icon">▶</span></div>
+                            <div class="track-info-wrapper">
+                                <img src="https://i.scdn.co/image/ab67616d0000b2736c4d86597c81e7c35b3e2906" class="track-img" alt="Track 2">
+                                <div class="track-info">
+                                    <span class="track-name">Tsswirtek</span>
+                                    <span class="track-artist">Draganov</span>
+                                </div>
                             </div>
-                            <div class="track-duration">3:49</div>
+                            <div class="track-album">Tsswirtek</div>
+                            <div class="track-duration">2:28</div>
+                        </div>
+                        <div class="spotify-track">
+                            <div class="track-num"><span class="num">3</span><span class="play-icon">▶</span></div>
+                            <div class="track-info-wrapper">
+                                <img src="https://i.scdn.co/image/ab67616d0000b273c7e9642fd913efe83a4e0659" class="track-img" alt="Track 3">
+                                <div class="track-info">
+                                    <span class="track-name">Gold</span>
+                                    <span class="track-artist">CASHFORGOLD, Tim Schaufert</span>
+                                </div>
+                            </div>
+                            <div class="track-album">Gold</div>
+                            <div class="track-duration">3:56</div>
                         </div>
                     </div>
                 </div>

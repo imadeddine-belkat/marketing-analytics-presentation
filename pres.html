@@ -1,0 +1,1304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Algorithm Collection | Luxury E-Commerce</title>
+
+    <!-- Premium Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+
+    <style>
+        /* CSS Variables - Luxury Palette */
+        :root {
+            --bg-primary: #FDFCF9;
+            --bg-secondary: #F4F3EF;
+            --text-main: #1A1A1A;
+            --text-muted: #666666;
+            --accent-gold: #B89768;
+            --border-light: #E8E6E1;
+            --black: #000000;
+            --white: #FFFFFF;
+
+            --font-serif: 'Playfair Display', serif;
+            --font-sans: 'Inter', sans-serif;
+
+            --transition-smooth: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* Reset & Base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-main);
+            font-family: var(--font-sans);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4, .serif {
+            font-family: var(--font-serif);
+            font-weight: 400;
+        }
+
+        .text-sm { font-size: 0.85rem; letter-spacing: 0.05em; text-transform: uppercase; }
+        .text-muted { color: var(--text-muted); }
+        .italic { font-style: italic; }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 4vw;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(253, 252, 249, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid transparent;
+            transition: var(--transition-smooth);
+        }
+
+        nav.scrolled {
+            border-bottom: 1px solid var(--border-light);
+            padding: 1rem 4vw;
+        }
+
+        .logo {
+            font-family: var(--font-serif);
+            font-size: 1.25rem;
+            letter-spacing: 0.02em;
+            text-decoration: none;
+            color: var(--text-main);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            font-family: var(--font-sans);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            text-decoration: none;
+            color: var(--text-main);
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover { color: var(--accent-gold); }
+
+        .cart-btn {
+            background: none;
+            border: none;
+            font-family: var(--font-sans);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* General Layout */
+        section {
+            padding: 8vw 4vw;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        /* Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1s ease, transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding-top: 5rem;
+        }
+
+        .hero-tag {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            margin-bottom: 2rem;
+            color: var(--accent-gold);
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 8vw, 7rem);
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            max-width: 80%;
+        }
+
+        .hero-meta {
+            margin-top: 3rem;
+            display: flex;
+            gap: 3rem;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+        }
+
+        /* Trust / Impact Badges */
+        .impact-section {
+            background: var(--black);
+            color: var(--white);
+            padding: 6vw 4vw;
+        }
+
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 4rem;
+            text-align: center;
+        }
+
+        .impact-item h2 {
+            font-size: 4rem;
+            color: var(--accent-gold);
+            margin-bottom: 0.5rem;
+        }
+
+        .impact-item p {
+            font-family: var(--font-sans);
+            font-size: 0.9rem;
+            letter-spacing: 0.05em;
+            opacity: 0.8;
+            text-transform: uppercase;
+        }
+
+        /* Section Headers */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 4rem;
+            border-bottom: 1px solid var(--border-light);
+            padding-bottom: 1rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+        }
+
+        /* Core Concepts */
+        .concepts-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .concept-card {
+            padding: 3rem 2rem;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-light);
+            transition: var(--transition-smooth);
+        }
+
+        .concept-card:hover {
+            transform: translateY(-5px);
+            background: var(--white);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+        }
+
+        .concept-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .concept-card p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        /* Metrics Dashboard */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .metric-group {
+            background: var(--bg-secondary);
+            padding: 3rem;
+            border: 1px solid var(--border-light);
+        }
+
+        .metric-group h3 {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            color: var(--accent-gold);
+        }
+
+        .metric-item {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .metric-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .metric-item h4 {
+            font-family: var(--font-sans);
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .metric-item p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        /* Evolution Timeline */
+        .timeline-scroll {
+            display: flex;
+            overflow-x: auto;
+            padding-bottom: 2rem;
+            gap: 2rem;
+            scrollbar-width: none; /* Firefox */
+        }
+        .timeline-scroll::-webkit-scrollbar { display: none; } /* Chrome */
+
+        .timeline-item {
+            min-width: 300px;
+            padding: 2rem;
+            border-left: 2px solid var(--accent-gold);
+            background: var(--white);
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -6px;
+            top: 2rem;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--accent-gold);
+        }
+
+        .timeline-year {
+            font-family: var(--font-serif);
+            font-size: 2rem;
+            color: var(--black);
+            margin-bottom: 1rem;
+        }
+
+        .timeline-item h4 {
+            font-family: var(--font-sans);
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-item p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* Algorithm Collection (The Products) */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 4rem 2rem;
+        }
+
+        .product-card {
+            cursor: pointer;
+            group: product;
+        }
+
+        .product-image {
+            width: 100%;
+            aspect-ratio: 4/5;
+            background: var(--bg-secondary);
+            margin-bottom: 1.5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .product-image svg {
+            width: 60%;
+            height: 60%;
+            transition: var(--transition-smooth);
+        }
+
+        .product-card:hover .product-image svg {
+            transform: scale(1.05);
+        }
+
+        .product-image::after {
+            content: 'ADD TO COLLECTION';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 1rem;
+            background: rgba(255,255,255,0.9);
+            text-align: center;
+            font-family: var(--font-sans);
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            transform: translateY(100%);
+            transition: var(--transition-smooth);
+        }
+
+        .product-card:hover .product-image::after {
+            transform: translateY(0);
+        }
+
+        .product-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .product-title {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-desc {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            max-width: 80%;
+        }
+
+        .product-tag {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent-gold);
+        }
+
+        /* Deep Learning Suite */
+        .featured-product {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            background: var(--black);
+            color: var(--white);
+            padding: 6vw;
+            margin: 4vw 0;
+        }
+
+        .featured-visual {
+            aspect-ratio: 1;
+            background: #111;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid #333;
+        }
+
+        .featured-visual svg { width: 80%; }
+
+        .featured-details h2 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent-gold);
+        }
+
+        .dl-list {
+            list-style: none;
+            margin-top: 2rem;
+        }
+
+        .dl-list li {
+            padding: 1.5rem 0;
+            border-bottom: 1px solid #333;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .btn-add {
+            display: inline-block;
+            margin-top: 3rem;
+            padding: 1rem 3rem;
+            background: var(--white);
+            color: var(--black);
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 0.1em;
+            transition: var(--transition-smooth);
+        }
+
+        .btn-add:hover {
+            background: var(--accent-gold);
+            color: var(--white);
+        }
+
+        /* Marketing Funnel Table */
+        .funnel-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 2rem;
+        }
+
+        .funnel-table th, .funnel-table td {
+            padding: 1.5rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .funnel-table th {
+            font-family: var(--font-sans);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+        }
+
+        .funnel-table td.stage {
+            font-family: var(--font-serif);
+            font-size: 1.25rem;
+        }
+
+        /* Case Studies Showroom */
+        .showroom {
+            display: flex;
+            flex-direction: column;
+            gap: 4rem;
+        }
+
+        .mockup {
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border-light);
+            display: grid;
+            grid-template-columns: 350px 1fr;
+            background: var(--bg-secondary);
+        }
+
+        .mockup-desc {
+            padding: 3rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .mockup-desc h3 { font-size: 2rem; margin-bottom: 1rem; }
+        .mockup-desc .brand { font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.5rem; color: var(--accent-gold);}
+
+        .mockup-ui {
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* HQ Amazon UI Clone */
+        .ui-amazon-hq { background: #fff; width: 100%; height: 100%; padding: 3rem 2rem; font-family: Arial, sans-serif; color: #0F1111; }
+        .ui-amazon-hq h2 { font-size: 1.1rem; color: #cc6600; font-family: Arial, sans-serif; margin-bottom: 1rem; border-bottom: 1px solid #ddd; padding-bottom: 0.5rem; font-weight: bold; }
+        .amazon-grid { display: flex; gap: 1.5rem; overflow-x: auto; padding-bottom: 1rem;}
+        .amazon-card { min-width: 160px; cursor: pointer; }
+        .amazon-img { height: 160px; background: #F7F7F7; border: 1px solid #EAEAEA; display: flex; align-items: center; justify-content: center; margin-bottom: 0.5rem; transition: transform 0.2s;}
+        .amazon-card:hover .amazon-img { transform: scale(1.02); }
+        .amazon-img svg { width: 50px; fill: #D5D9D9; }
+        .amazon-title { font-size: 0.85rem; color: #007185; line-height: 1.3; height: 2.6em; overflow: hidden; margin-bottom: 0.2rem;}
+        .amazon-title:hover { color: #C60; text-decoration: underline; }
+        .amazon-rating { color: #FFA41C; font-size: 0.8rem; margin-bottom: 0.2rem; }
+        .amazon-rating span { color: #007185; margin-left: 0.2rem;}
+        .amazon-price { font-size: 1.2rem; font-weight: bold; color: #B12704; }
+        .amazon-price sup { font-size: 0.75rem; }
+
+        /* HQ Netflix UI Clone */
+        .ui-netflix-hq { background: #141414; width: 100%; height: 100%; padding: 2rem; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; color: #fff; }
+        .netflix-hero { background: linear-gradient(to top, #141414 0%, transparent 100%), #333; height: 180px; border-radius: 4px; margin-bottom: 1.5rem; padding: 1.5rem; display:flex; flex-direction: column; justify-content: flex-end;}
+        .netflix-hero-title { font-size: 2rem; font-weight: 800; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); margin-bottom: 0.5rem;}
+        .netflix-tags { font-size: 0.75rem; color: #fff; font-weight: bold; display: flex; gap: 0.8rem; align-items: center;}
+        .netflix-match { color: #46d369; }
+        .netflix-box { border: 1px solid rgba(255,255,255,0.4); padding: 0.1rem 0.3rem; border-radius: 2px; }
+        .ui-netflix-hq h2 { font-size: 1.1rem; font-weight: bold; margin-bottom: 0.8rem; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;}
+        .netflix-grid { display: flex; gap: 0.5rem; overflow-x: auto; padding-bottom: 1rem;}
+        .netflix-card { min-width: 140px; height: 190px; background: #222; border-radius: 4px; transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1); cursor: pointer; display: flex; align-items: center; justify-content: center;}
+        .netflix-card:hover { transform: scale(1.1); z-index: 2; box-shadow: 0 10px 20px rgba(0,0,0,0.8); background: #333; border: 1px solid #444;}
+        .netflix-card svg { width: 40px; opacity: 0.2; }
+
+        /* HQ Spotify UI Clone */
+        .ui-spotify-hq { background: linear-gradient(180deg, #1f1f1f 0%, #121212 100%); width: 100%; height: 100%; padding: 2.5rem; font-family: 'Inter', sans-serif; color: #fff; }
+        .spotify-header { display: flex; gap: 1.5rem; align-items: flex-end; margin-bottom: 2rem; }
+        .spotify-cover { width: 140px; height: 140px; background: linear-gradient(135deg, #450af5, #c4efd9); box-shadow: 0 8px 24px rgba(0,0,0,0.5); display: flex; align-items: center; justify-content: center;}
+        .spotify-cover svg { width: 50px; fill: #fff; opacity: 0.8;}
+        .dw-info { display: flex; flex-direction: column; gap: 0.2rem;}
+        .spotify-type { font-size: 0.75rem; text-transform: uppercase; font-weight: 700; letter-spacing: 0.05em; }
+        .spotify-title { font-size: 3rem; font-weight: 900; margin: 0; letter-spacing: -0.04em; line-height: 1; font-family: 'Inter', sans-serif;}
+        .spotify-desc { font-size: 0.85rem; color: #b3b3b3; margin-top: 0.5rem; }
+        .spotify-meta { font-size: 0.85rem; font-weight: 600; margin-top: 0.2rem;}
+        .spotify-meta span { color: #b3b3b3; font-weight: normal; }
+
+        .spotify-controls { margin-bottom: 1.5rem; }
+        .spotify-play { width: 56px; height: 56px; background: #1ed760; border-radius: 50%; display: flex; justify-content: center; align-items: center; cursor: pointer; transition: transform 0.2s, background 0.2s;}
+        .spotify-play:hover { transform: scale(1.05); background: #1fdf64; }
+        .spotify-play::before { content: '▶'; color: #000; font-size: 1.5rem; margin-left: 4px;}
+
+        .spotify-track-list { display: flex; flex-direction: column; gap: 0.2rem; }
+        .spotify-track { display: grid; grid-template-columns: 30px 1fr 40px; align-items: center; padding: 0.6rem; border-radius: 4px; transition: background 0.2s; cursor: pointer; }
+        .spotify-track:hover { background: rgba(255,255,255,0.1); }
+        .track-num { color: #b3b3b3; font-size: 0.9rem; text-align: center; }
+        .track-info { display: flex; flex-direction: column; }
+        .track-name { font-size: 1rem; color: #fff; font-weight: 500;}
+        .track-artist { font-size: 0.85rem; color: #b3b3b3; }
+        .track-duration { color: #b3b3b3; font-size: 0.9rem; }
+
+        /* Critical Analysis / FAQ */
+        .faq-item {
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .faq-question {
+            width: 100%;
+            text-align: left;
+            padding: 2rem 0;
+            background: none;
+            border: none;
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+        }
+
+        .faq-answer p {
+            padding-bottom: 2rem;
+            color: var(--text-muted);
+            max-width: 800px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--black);
+            color: var(--white);
+            padding: 6vw 4vw;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-family: var(--font-serif);
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-conclusion {
+            font-family: var(--font-sans);
+            font-size: 1.1rem;
+            line-height: 1.8;
+            max-width: 700px;
+            margin: 0 auto 3rem auto;
+            color: #ccc;
+        }
+
+        .footer-meta {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #666;
+            border-top: 1px solid #333;
+            padding-top: 2rem;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        /* Notification Toast */
+        .toast {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: var(--black);
+            color: var(--white);
+            padding: 1rem 2rem;
+            font-family: var(--font-sans);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: var(--transition-smooth);
+            z-index: 2000;
+        }
+
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .product-grid { grid-template-columns: 1fr; }
+            .concepts-grid { grid-template-columns: 1fr; }
+            .metrics-grid { grid-template-columns: 1fr; }
+            .featured-product { grid-template-columns: 1fr; }
+            .mockup { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 3rem; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav id="navbar">
+    <a href="#" class="logo">Maison des Algorithmes</a>
+    <div class="nav-links">
+        <a href="#archives">Archives</a>
+        <a href="#metrics">Metrics</a>
+        <a href="#collection">Collection</a>
+        <a href="#showroom">Showroom</a>
+    </div>
+    <button class="cart-btn" onclick="openCart()">
+        Knowledge Bag (<span id="cart-count">0</span>)
+    </button>
+</nav>
+
+<!-- Notification Toast -->
+<div class="toast" id="toast">Algorithm added to collection.</div>
+
+<!-- Hero Section -->
+<header class="hero reveal">
+    <span class="hero-tag">The invisible engine of e-commerce</span>
+    <h1>Recommendation<br><i class="italic">Systems</i></h1>
+    <p class="text-muted" style="max-width: 600px; font-size: 1.1rem;">
+        A curated suite predicting desires based on behavior. Benefit both user experience and business engagement through algorithmic elegance.
+    </p>
+    <div class="hero-meta">
+        <span>Author: Imadeddine Belkat</span>
+        <span>Course: BDA5002</span>
+        <span>Inst: BAU</span>
+    </div>
+</header>
+
+<!-- The Impact / Trust Section -->
+<section class="impact-section reveal">
+    <div class="impact-grid">
+        <div class="impact-item">
+            <h2>35%</h2>
+            <p>Of Amazon's Revenue<br>from recommendations</p>
+        </div>
+        <div class="impact-item">
+            <h2>75%</h2>
+            <p>Of Netflix Viewing<br>from recommendations</p>
+        </div>
+        <div class="impact-item">
+            <h2>2-3X</h2>
+            <p>Higher CTR from<br>personalized emails</p>
+        </div>
+        <div class="impact-item">
+            <h2>350M+</h2>
+            <p>Items Navigated<br>automatically</p>
+        </div>
+    </div>
+</section>
+
+<!-- The Archives (Evolution Timeline) -->
+<section id="archives" class="reveal">
+    <div class="section-header">
+        <h2>The Archives</h2>
+        <span class="text-sm text-muted">Evolution of the Field</span>
+    </div>
+
+    <div class="timeline-scroll">
+        <div class="timeline-item">
+            <div class="timeline-year">1992</div>
+            <h4>Tapestry System</h4>
+            <p>Goldberg et al. introduce the foundational concept of collaborative filtering.</p>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-year">2001</div>
+            <h4>Item-Based CF</h4>
+            <p>Sarwar et al. propose item-based CF, providing the key for e-commerce scalability.</p>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-year">2003</div>
+            <h4>Amazon's Approach</h4>
+            <p>Linden et al. formally publish Amazon's highly successful Item-to-Item CF model.</p>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-year">2009</div>
+            <h4>Matrix Factorization</h4>
+            <p>Koren et al. win the famous Netflix Prize utilizing matrix factorization techniques.</p>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-year">2015</div>
+            <h4>Full Hybrid Architecture</h4>
+            <p>Gomez-Uribe & Hunt detail Netflix's comprehensive hybrid personalization architecture.</p>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-year">2019</div>
+            <h4>Deep Learning Era</h4>
+            <p>Zhang et al. survey the integration of deep learning methods for advanced recommendation.</p>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-year">2023</div>
+            <h4>LLM-Based Systems</h4>
+            <p>Wu et al. review massive Large Language Model approaches for recommendation.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Core Concepts -->
+<section id="foundation" class="reveal">
+    <div class="section-header">
+        <h2>The Ingredients</h2>
+        <span class="text-sm text-muted">Core Data Structures</span>
+    </div>
+    <div class="concepts-grid">
+        <div class="concept-card">
+            <h3>User Data</h3>
+            <p>The behavioral blueprint. Purchase history, subtle clicks, conscious ratings, and the silent metric of time spent on page.</p>
+        </div>
+        <div class="concept-card">
+            <h3>Item Data</h3>
+            <p>The structural anatomy of the catalog. Category, price point, brand heritage, and intrinsic feature descriptions.</p>
+        </div>
+        <div class="concept-card">
+            <h3>Context Data</h3>
+            <p>The environmental variables. Time of day, device landscape, geographic location, and active session rhythm.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Metrics Section -->
+<section id="metrics" class="reveal">
+    <div class="section-header">
+        <h2>Performance Specifications</h2>
+        <span class="text-sm text-muted">How Performance Is Measured</span>
+    </div>
+
+    <div class="metrics-grid">
+        <!-- Offline Metrics -->
+        <div class="metric-group">
+            <h3>Offline Metrics (Accuracy)</h3>
+            <div class="metric-item">
+                <h4>Precision@K</h4>
+                <p>Calculates how many of the top-K recommended items were actually relevant to the user.</p>
+            </div>
+            <div class="metric-item">
+                <h4>Recall@K</h4>
+                <p>Calculates how many of the user's total liked items appeared in the top-K recommendations.</p>
+            </div>
+            <div class="metric-item">
+                <h4>NDCG</h4>
+                <p>Normalized Discounted Cumulative Gain. Evaluates if the absolute best items are ranked the highest in the list.</p>
+            </div>
+        </div>
+
+        <!-- Online Metrics -->
+        <div class="metric-group">
+            <h3>Online Metrics (Business)</h3>
+            <div class="metric-item">
+                <h4>Click-Through Rate (CTR)</h4>
+                <p>Measures immediate engagement: Do users actually click on the provided recommendations?</p>
+            </div>
+            <div class="metric-item">
+                <h4>Conversion Rate</h4>
+                <p>Measures subsequent action: Do those algorithmic clicks ultimately lead to successful purchases?</p>
+            </div>
+            <div class="metric-item">
+                <h4>AOV & CLV</h4>
+                <p>Average Order Value and Customer Lifetime Value. Do recommendations increase overall spending and long-term loyalty?</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- The Products (Algorithms) -->
+<section id="collection" class="reveal">
+    <div class="section-header">
+        <h2>The Signature Collection</h2>
+        <span class="text-sm text-muted">Primary Filtering Models</span>
+    </div>
+
+    <div class="product-grid">
+        <!-- Product 1 -->
+        <div class="product-card" onclick="addToCart('Collaborative Filtering')">
+            <div class="product-image">
+                <!-- Abstract SVGs representing the algorithm -->
+                <svg viewBox="0 0 100 100" fill="none" stroke="var(--text-main)" stroke-width="1">
+                    <circle cx="35" cy="50" r="25" />
+                    <circle cx="65" cy="50" r="25" />
+                    <path d="M50 30 L50 70" stroke-dasharray="2 2"/>
+                </svg>
+            </div>
+            <div class="product-info">
+                <div>
+                    <h3 class="product-title">Collaborative Filtering</h3>
+                    <p class="product-desc">Finds users with similar behavior. Utilizes Item-Based or User-Based methodologies. Won the Netflix Prize via Matrix Factorization.</p>
+                </div>
+                <span class="product-tag">Foundation</span>
+            </div>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="product-card" onclick="addToCart('Content-Based Filtering')">
+            <div class="product-image">
+                <svg viewBox="0 0 100 100" fill="none" stroke="var(--text-main)" stroke-width="1">
+                    <rect x="20" y="20" width="60" height="10" />
+                    <rect x="20" y="45" width="40" height="10" />
+                    <rect x="20" y="70" width="50" height="10" />
+                    <line x1="80" y1="20" x2="80" y2="80" stroke-width="2" stroke="var(--accent-gold)"/>
+                </svg>
+            </div>
+            <div class="product-info">
+                <div>
+                    <h3 class="product-title">Content-Based</h3>
+                    <p class="product-desc">Matches items to user profiles via intrinsic features (TF-IDF, Word2Vec, BERT). Excellent for cold-start items with no interaction history.</p>
+                </div>
+                <span class="product-tag">Precision</span>
+            </div>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="product-card" onclick="addToCart('Hybrid Models')">
+            <div class="product-image">
+                <svg viewBox="0 0 100 100" fill="none" stroke="var(--text-main)" stroke-width="1">
+                    <path d="M10 50 Q 30 20 50 50 T 90 50" />
+                    <path d="M10 60 Q 30 30 50 60 T 90 60" stroke="var(--accent-gold)"/>
+                    <path d="M10 40 Q 30 10 50 40 T 90 40" stroke-dasharray="2 2"/>
+                </svg>
+            </div>
+            <div class="product-info">
+                <div>
+                    <h3 class="product-title">The Hybrid Ensemble</h3>
+                    <p class="product-desc">Combines multiple methods (Weighted, Switching, Cascade). Reduces individual algorithmic weaknesses. Used heavily by Netflix.</p>
+                </div>
+                <span class="product-tag">Advanced</span>
+            </div>
+        </div>
+
+        <!-- Product 4 -->
+        <div class="product-card" onclick="addToCart('Knowledge-Based')">
+            <div class="product-image">
+                <svg viewBox="0 0 100 100" fill="none" stroke="var(--text-main)" stroke-width="1">
+                    <polygon points="50,15 90,85 10,85" />
+                    <circle cx="50" cy="60" r="10" fill="var(--bg-secondary)"/>
+                    <line x1="50" y1="15" x2="50" y2="50" />
+                </svg>
+            </div>
+            <div class="product-info">
+                <div>
+                    <h3 class="product-title">Knowledge-Based</h3>
+                    <p class="product-desc">Uses explicit rules and requirements. Engineered specifically for highly complex product spaces needing detailed domain knowledge.</p>
+                </div>
+                <span class="product-tag">Specialty</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Deep Learning Featured Block -->
+<section class="reveal">
+    <div class="featured-product">
+        <div class="featured-visual">
+            <svg viewBox="0 0 100 100" fill="none" stroke="var(--accent-gold)" stroke-width="0.5">
+                <!-- Neural Net Abstraction -->
+                <circle cx="20" cy="30" r="2" fill="var(--accent-gold)"/>
+                <circle cx="20" cy="70" r="2" fill="var(--accent-gold)"/>
+                <circle cx="50" cy="20" r="2" fill="var(--accent-gold)"/>
+                <circle cx="50" cy="50" r="2" fill="var(--accent-gold)"/>
+                <circle cx="50" cy="80" r="2" fill="var(--accent-gold)"/>
+                <circle cx="80" cy="50" r="2" fill="var(--accent-gold)"/>
+                <line x1="22" y1="31" x2="48" y2="21" />
+                <line x1="22" y1="31" x2="48" y2="49" />
+                <line x1="22" y1="31" x2="48" y2="79" />
+                <line x1="22" y1="69" x2="48" y2="21" />
+                <line x1="22" y1="69" x2="48" y2="49" />
+                <line x1="22" y1="69" x2="48" y2="79" />
+                <line x1="52" y1="21" x2="78" y2="49" />
+                <line x1="52" y1="51" x2="78" y2="49" />
+                <line x1="52" y1="79" x2="78" y2="49" />
+            </svg>
+        </div>
+        <div class="featured-details">
+            <span class="text-sm text-muted">The Haute Couture of RecSys</span>
+            <h2>Deep Learning Suite</h2>
+            <p style="color: #ccc;">Replacing standard dot products with advanced neural architectures. Engineered for scale and nuance.</p>
+
+            <ul class="dl-list">
+                <li>
+                    <span class="serif" style="font-size: 1.2rem;">Neural CF (NCF)</span>
+                    <span class="text-sm text-muted">User-item interaction</span>
+                </li>
+                <li>
+                    <span class="serif" style="font-size: 1.2rem;">Wide & Deep</span>
+                    <span class="text-sm text-muted">Linear + Deep generalization</span>
+                </li>
+                <li>
+                    <span class="serif" style="font-size: 1.2rem;">Sequential (SASRec)</span>
+                    <span class="text-sm text-muted">Attention mechanisms over time</span>
+                </li>
+                <li>
+                    <span class="serif" style="font-size: 1.2rem;">Two-Tower Models</span>
+                    <span class="text-sm text-muted">Fast nearest-neighbor search</span>
+                </li>
+                <li>
+                    <span class="serif" style="font-size: 1.2rem;">LLM-Based</span>
+                    <span class="text-sm text-muted">Natural language processing</span>
+                </li>
+            </ul>
+
+            <a href="#showroom" class="btn-add">Explore Implementations</a>
+        </div>
+    </div>
+</section>
+
+<!-- Marketing Funnel -->
+<section class="reveal">
+    <div class="section-header">
+        <h2>The Journey</h2>
+        <span class="text-sm text-muted">Across the Funnel</span>
+    </div>
+    <table class="funnel-table">
+        <thead>
+        <tr>
+            <th>Stage</th>
+            <th>Algorithmic Role</th>
+            <th>UX Manifestation</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td class="stage">Awareness</td>
+            <td>Show relevant categories to new users</td>
+            <td><i class="italic text-muted">"Trending in your area"</i></td>
+        </tr>
+        <tr>
+            <td class="stage">Consideration</td>
+            <td>Surface alternatives and similar constructs</td>
+            <td><i class="italic text-muted">"Customers also viewed"</i></td>
+        </tr>
+        <tr>
+            <td class="stage">Conversion</td>
+            <td>Reduce decision time, prompt add-ons</td>
+            <td><i class="italic text-muted">"Frequently bought together"</i></td>
+        </tr>
+        <tr>
+            <td class="stage">Retention</td>
+            <td>Re-engage with personalized histories</td>
+            <td><i class="italic text-muted">"Because you bought X..."</i></td>
+        </tr>
+        <tr>
+            <td class="stage">Advocacy</td>
+            <td>Recommend shareable or popular items</td>
+            <td><i class="italic text-muted">"Share this list with friends"</i></td>
+        </tr>
+        </tbody>
+    </table>
+</section>
+
+<!-- Case Studies / Showroom (High-Fidelity) -->
+<section id="showroom" class="reveal">
+    <div class="section-header">
+        <h2>The Showroom</h2>
+        <span class="text-sm text-muted">Real-World High-Fidelity Architectures</span>
+    </div>
+
+    <div class="showroom">
+        <!-- HQ Amazon Mockup -->
+        <div class="mockup">
+            <div class="mockup-desc">
+                <span class="brand">Case 01 / Retail</span>
+                <h3>Amazon</h3>
+                <p class="text-muted"><strong>Item-Based Collaborative Filtering.</strong><br><br>With tens of millions of users, computing item-to-item similarity is far faster and more consistent than user-to-user comparisons. This engineering trade-off sacrifices some user-specific flexibility but dramatically improves scalability and latency.</p>
+            </div>
+            <div class="mockup-ui">
+                <div class="ui-amazon-hq">
+                    <h2>Customers who bought this item also bought</h2>
+                    <div class="amazon-grid">
+                        <div class="amazon-card">
+                            <div class="amazon-img">
+                                <svg viewBox="0 0 24 24"><path d="M4 6h16v12H4z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 10h8v4H8z" fill="#ccc"/></svg>
+                            </div>
+                            <div class="amazon-title">Sony WH-1000XM4 Wireless Premium Noise Canceling...</div>
+                            <div class="amazon-rating">★★★★☆ <span>42,109</span></div>
+                            <div class="amazon-price"><sup>$</sup>298<sup>00</sup></div>
+                        </div>
+                        <div class="amazon-card">
+                            <div class="amazon-img">
+                                <svg viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="2" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+                            </div>
+                            <div class="amazon-title">Apple AirPods Pro (2nd Gen) Wireless Earbuds...</div>
+                            <div class="amazon-rating">★★★★★ <span>112,400</span></div>
+                            <div class="amazon-price"><sup>$</sup>239<sup>00</sup></div>
+                        </div>
+                        <div class="amazon-card">
+                            <div class="amazon-img">
+                                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="3" fill="#ccc"/></svg>
+                            </div>
+                            <div class="amazon-title">Bose QuietComfort 45 Bluetooth Wireless Noise...</div>
+                            <div class="amazon-rating">★★★★☆ <span>18,932</span></div>
+                            <div class="amazon-price"><sup>$</sup>279<sup>00</sup></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- HQ Netflix Mockup -->
+        <div class="mockup">
+            <div class="mockup-desc">
+                <span class="brand">Case 02 / Streaming</span>
+                <h3>Netflix</h3>
+                <p class="text-muted"><strong>Hybrid Personalization.</strong><br><br>Multiple algorithms working together. Netflix treats recommendation as a full-ranking optimization problem across the entire UX, not just a list. Even the thumbnail artwork is algorithmically selected per user to reduce overall churn.</p>
+            </div>
+            <div class="mockup-ui">
+                <div class="ui-netflix-hq">
+                    <div class="netflix-hero">
+                        <div class="netflix-hero-title">STRANGER THINGS</div>
+                        <div class="netflix-tags">
+                            <span class="netflix-match">98% Match</span>
+                            <span>2022</span>
+                            <span class="netflix-box">TV-14</span>
+                            <span>4 Seasons</span>
+                        </div>
+                    </div>
+                    <h2>Top Picks for You</h2>
+                    <div class="netflix-grid">
+                        <div class="netflix-card">
+                            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+                        </div>
+                        <div class="netflix-card">
+                            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+                        </div>
+                        <div class="netflix-card">
+                            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+                        </div>
+                        <div class="netflix-card">
+                            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- HQ Spotify Mockup -->
+        <div class="mockup">
+            <div class="mockup-desc">
+                <span class="brand">Case 03 / Audio</span>
+                <h3>Spotify</h3>
+                <p class="text-muted"><strong>Context-Aware Recommendation.</strong><br><br>Discover Weekly finds 30 personalized songs every Monday by matching listening histories. It combines raw audio analysis (tempo, energy), collaborative filtering (playlist co-occurrence), and NLP signals from playlist names.</p>
+            </div>
+            <div class="mockup-ui">
+                <div class="ui-spotify-hq">
+                    <div class="spotify-header">
+                        <div class="spotify-cover">
+                            <svg viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
+                        </div>
+                        <div class="dw-info">
+                            <span class="spotify-type">Playlist</span>
+                            <h1 class="spotify-title">Discover Weekly</h1>
+                            <p class="spotify-desc">Your weekly mixtape of fresh music. Enjoy new discoveries and deep cuts chosen just for you.</p>
+                            <div class="spotify-meta">Spotify <span>• 30 songs, 1 hr 45 min</span></div>
+                        </div>
+                    </div>
+                    <div class="spotify-controls">
+                        <div class="spotify-play"></div>
+                    </div>
+                    <div class="spotify-track-list">
+                        <div class="spotify-track">
+                            <div class="track-num">1</div>
+                            <div class="track-info">
+                                <span class="track-name">Midnight City</span>
+                                <span class="track-artist">M83</span>
+                            </div>
+                            <div class="track-duration">4:03</div>
+                        </div>
+                        <div class="spotify-track">
+                            <div class="track-num">2</div>
+                            <div class="track-info">
+                                <span class="track-name">Walking On A Dream</span>
+                                <span class="track-artist">Empire of the Sun</span>
+                            </div>
+                            <div class="track-duration">3:16</div>
+                        </div>
+                        <div class="spotify-track">
+                            <div class="track-num">3</div>
+                            <div class="track-info">
+                                <span class="track-name">Electric Feel</span>
+                                <span class="track-artist">MGMT</span>
+                            </div>
+                            <div class="track-duration">3:49</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Critical Analysis / FAQ -->
+<section id="analysis" class="reveal">
+    <div class="section-header">
+        <h2>Care & Handling</h2>
+        <span class="text-sm text-muted">System Limitations & Analysis</span>
+    </div>
+
+    <div class="faq-container">
+        <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+                The Cold Start Problem
+                <span>+</span>
+            </button>
+            <div class="faq-answer">
+                <p>New users possess no behavioral data; new products lack interaction history. Algorithmic quality suffers when first impressions matter most. Addressed via Hybrid systems and onboarding questionnaires to build initial heuristic profiles.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+                Filter Bubbles
+                <span>+</span>
+            </button>
+            <div class="faq-answer">
+                <p>Systems recursively display pre-validated preferences, showing users more of what they already like, narrowing discovery over time. Injecting 'serendipity' helps, but creates a relevance trade-off; too much diversity frustrates users.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+                Privacy & Fairness
+                <span>+</span>
+            </button>
+            <div class="faq-answer">
+                <p>Large-scale data collection raises GDPR concerns. Furthermore, historical biases inherent in training data are learned and repeated by models. Algorithmic fairness remains an active, critical research domain (Tintarev, 2022).</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer / Conclusion -->
+<footer>
+    <div class="footer-logo">Maison des Algorithmes</div>
+
+    <div class="footer-conclusion">
+        <p>Recommendation systems are core to modern e-commerce marketing, enabling personalized experiences at scale. The field has evolved from simple CF (1990s) through hybrid deep learning to LLM-based approaches. Evidence from giants confirms direct impact on revenue, churn, and satisfaction. Moving forward, responsible design, transparency, fairness, and privacy safeguards are increasingly paramount.</p>
+    </div>
+
+    <div class="footer-meta">
+        Designed for BDA5002 Marketing Analytics<br>
+        Bahçeşehir University (BAU)<br>
+        Imadeddine Belkat
+    </div>
+</footer>
+
+<!-- Interactive Scripts -->
+<script>
+    // Scroll Animation Logic
+    const reveals = document.querySelectorAll('.reveal');
+
+    const revealOnScroll = () => {
+        const windowHeight = window.innerHeight;
+        const elementVisible = 100;
+
+        reveals.forEach(reveal => {
+            const elementTop = reveal.getBoundingClientRect().top;
+            if (elementTop < windowHeight - elementVisible) {
+                reveal.classList.add('active');
+            }
+        });
+    };
+
+    window.addEventListener('scroll', revealOnScroll);
+    revealOnScroll(); // trigger on load
+
+    // Navbar styling on scroll
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    });
+
+    // FAQ Toggle Logic
+    function toggleFaq(btn) {
+        const answer = btn.nextElementSibling;
+        const icon = btn.querySelector('span');
+
+        if (answer.style.maxHeight) {
+            answer.style.maxHeight = null;
+            icon.textContent = '+';
+        } else {
+            // Close others
+            document.querySelectorAll('.faq-answer').forEach(ans => ans.style.maxHeight = null);
+            document.querySelectorAll('.faq-question span').forEach(sp => sp.textContent = '+');
+
+            // Open this
+            answer.style.maxHeight = answer.scrollHeight + "px";
+            icon.textContent = '−';
+        }
+    }
+
+    // Cart / Collection Logic
+    let cartCount = 0;
+    function addToCart(item) {
+        cartCount++;
+        document.getElementById('cart-count').innerText = cartCount;
+
+        const toast = document.getElementById('toast');
+        toast.innerText = `${item} added to collection.`;
+        toast.classList.add('show');
+
+        setTimeout(() => {
+            toast.classList.remove('show');
+        }, 3000);
+    }
+
+    function openCart() {
+        if(cartCount === 0) {
+            alert("Your knowledge bag is empty. Explore the collection.");
+        } else {
+            alert(`You have saved ${cartCount} algorithm(s) to your collection. Ready for deployment.`);
+        }
+    }
+</script>
+</body>
+</html>

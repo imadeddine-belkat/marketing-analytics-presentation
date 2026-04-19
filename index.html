@@ -536,7 +536,7 @@
 
         /* HQ Amazon UI Clone */
         .ui-amazon-hq { background: #fff; width: 100%; height: 100%; padding: 2.5rem; font-family: Inter, Arial, sans-serif; color: #0F1111; }
-        .ui-amazon-hq h2 { font-size: 1.15rem; color: #c60; font-weight: 700; margin-bottom: 1rem; border-bottom: 1px solid #ddd; padding-bottom: 0.5rem; }
+        .ui-amazon-hq h2 { font-size: 1.15rem; color: #111; font-weight: 700; margin-bottom: 1rem; border-bottom: 1px solid #ddd; padding-bottom: 0.5rem; }
         .amazon-grid { display: flex; gap: 1.5rem; overflow-x: auto; padding-bottom: 1rem; scrollbar-width: none;}
         .amazon-card { min-width: 180px; max-width: 180px; cursor: pointer; }
         .amazom-section-title {
@@ -642,7 +642,7 @@
         .spotify-cover { width: 160px; height: 160px; box-shadow: 0 8px 24px rgba(0,0,0,0.5); object-fit: cover; }
         .dw-info { display: flex; flex-direction: column; gap: 0.3rem;}
         .spotify-type { font-size: 0.75rem; text-transform: uppercase; font-weight: 700; letter-spacing: 0.05em; }
-        .spotify-title { font-size: 3.5rem; font-weight: 900; margin: 0; letter-spacing: -0.04em; line-height: 1.1;}
+        .spotify-title { font-size: 3.5rem; font-weight: 900; margin: 0; letter-spacing: -0.04em; line-height: 1.1; font-family: 'Inter', -apple-system, sans-serif;}
         .spotify-desc { font-size: 0.85rem; color: #b3b3b3; margin-top: 0.2rem; font-weight: 400; }
         .spotify-meta { font-size: 0.85rem; font-weight: 600; margin-top: 0.2rem;}
         .spotify-meta span { color: #b3b3b3; font-weight: normal; }
@@ -651,11 +651,11 @@
         .spotify-controls {
             display: flex;
             align-items: center;
-            gap: 24px; /* Adjusted gap to match screenshot */
+            gap: 24px;
             padding: 24px;
         }
 
-        /* Play Button - The iconic Spotify Green Circle */
+        /* Play Button */
         .spotify-play {
             width: 56px;
             height: 56px;
@@ -683,7 +683,6 @@
             width: 24px;
             height: 24px;
             fill: #000;
-            /* Small offset to perfectly center the play triangle optically */
             margin-left: 3px;
         }
 
@@ -721,30 +720,27 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #b3b3b3; /* Spotify gray */
+            color: #b3b3b3;
             cursor: pointer;
             transition: color 0.2s ease, transform 0.2s ease;
         }
 
         .spotify-icon:hover {
-            color: #ffffff; /* Brighten on hover */
+            color: #ffffff;
         }
 
         .spotify-icon:active, .spotify-added:active {
             transform: scale(0.9);
         }
 
-        /* Default SVG sizing */
         .spotify-icon svg, .spotify-added svg {
             width: 24px;
             height: 24px;
         }
 
-        /* SVG Color Handling */
         .svg-fill { fill: currentColor; }
         .svg-stroke { fill: none; stroke: currentColor; }
 
-        /* Active state scale effect */
         .spotify-added.active:hover {
             transform: scale(1.04);
         }
@@ -756,13 +752,9 @@
             display: flex;
             flex-direction: column;
             gap: 0.5rem;
-
-            /* Show only 3 items worth of height */
-            max-height: calc(3 * 70px + 2 * 0.5rem); /* adjust 70px to item height */
-
+            max-height: calc(3 * 70px + 2 * 0.5rem);
             overflow-y: auto;
             overflow-x: hidden;
-
             scrollbar-width: none;
         }
         .spotify-track { display: grid; grid-template-columns: 40px 1fr 120px 50px; align-items: center; padding: 0.5rem 1rem; border-radius: 4px; transition: background 0.2s; cursor: pointer; }
@@ -907,12 +899,12 @@
     <span class="hero-tag">The invisible engine of e-commerce</span>
     <h1>Recommendation<br><i class="italic">Systems</i></h1>
     <p class="text-muted" style="max-width: 600px; font-size: 1.1rem;">
-        A curated suite predicting desires based on behavior. Benefit both user experience and business engagement through algorithmic elegance.
+        A tool that predicts what a user would like based on available data. Benefiting both user experience and business engagement through algorithmic elegance.
     </p>
     <div class="hero-meta">
         <span>Author: Imadeddine Belkat</span>
-        <span>Course: BDA5002</span>
-        <span>Inst: BAU</span>
+        <span>Course: BDA5002 Marketing Analytics</span>
+        <span>Inst: Bahcesehir University</span>
     </div>
 </header>
 
@@ -932,8 +924,8 @@
             <p>Higher CTR from<br>personalized emails</p>
         </div>
         <div class="impact-item">
-            <h2>350M+</h2>
-            <p>Items Navigated<br>automatically</p>
+            <h2>80%</h2>
+            <p>Of consumers prefer<br>personalized experiences</p>
         </div>
     </div>
 </section>
@@ -949,37 +941,37 @@
         <div class="timeline-item">
             <div class="timeline-year">1992</div>
             <h4>Tapestry System</h4>
-            <p>Goldberg et al. introduce the foundational concept of collaborative filtering.</p>
+            <p>Goldberg et al. introduce the term 'collaborative filtering' in a system that used human feedback to filter information for other users.</p>
         </div>
         <div class="timeline-item">
             <div class="timeline-year">2001</div>
             <h4>Item-Based CF</h4>
-            <p>Sarwar et al. propose item-based CF, providing the key for e-commerce scalability.</p>
+            <p>Sarwar et al. propose item-based collaborative filtering, comparing items rather than users. Important for e-commerce because product catalogs are more stable than user behavior.</p>
         </div>
         <div class="timeline-item">
             <div class="timeline-year">2003</div>
             <h4>Amazon's Approach</h4>
-            <p>Linden et al. formally publish Amazon's highly successful Item-to-Item CF model.</p>
+            <p>Linden et al. describe Amazon's item-to-item CF model, explaining why comparing items was much faster and produced more consistent results than comparing users.</p>
         </div>
         <div class="timeline-item">
             <div class="timeline-year">2009</div>
             <h4>Matrix Factorization</h4>
-            <p>Koren et al. win the famous Netflix Prize utilizing matrix factorization techniques.</p>
+            <p>Koren et al. win the Netflix Prize using matrix factorization, representing users and items as vectors of latent factors and predicting preferences by multiplying them.</p>
         </div>
         <div class="timeline-item">
             <div class="timeline-year">2015</div>
             <h4>Full Hybrid Architecture</h4>
-            <p>Gomez-Uribe & Hunt detail Netflix's comprehensive hybrid personalization architecture.</p>
+            <p>Gomez-Uribe &amp; Hunt describe Netflix's full recommendation architecture, combining content ranking, row ordering, and personalized thumbnail selection.</p>
         </div>
         <div class="timeline-item">
             <div class="timeline-year">2019</div>
             <h4>Deep Learning Era</h4>
-            <p>Zhang et al. survey the integration of deep learning methods for advanced recommendation.</p>
+            <p>Zhang et al. survey deep learning methods for recommendation, showing how neural networks learn complex patterns that simpler models cannot capture.</p>
         </div>
         <div class="timeline-item">
             <div class="timeline-year">2023</div>
             <h4>LLM-Based Systems</h4>
-            <p>Wu et al. review massive Large Language Model approaches for recommendation.</p>
+            <p>Wu et al. review three LLM approaches: generating feature embeddings, producing recommendations directly, and acting as conversational agents to understand preferences.</p>
         </div>
     </div>
 </section>
@@ -993,15 +985,15 @@
     <div class="concepts-grid">
         <div class="concept-card">
             <h3>User Data</h3>
-            <p>The behavioral blueprint. Purchase history, subtle clicks, conscious ratings, and the silent metric of time spent on page.</p>
+            <p>History of purchases, clicks, ratings, and time spent on pages. The behavioral blueprint that reveals preference patterns.</p>
         </div>
         <div class="concept-card">
             <h3>Item Data</h3>
-            <p>The structural anatomy of the catalog. Category, price point, brand heritage, and intrinsic feature descriptions.</p>
+            <p>Product features such as category, price, brand, and description. The structural anatomy of the catalog.</p>
         </div>
         <div class="concept-card">
             <h3>Context Data</h3>
-            <p>The environmental variables. Time of day, device landscape, geographic location, and active session rhythm.</p>
+            <p>Time of day, device used, location, and current session activity. The environmental variables shaping each interaction.</p>
         </div>
     </div>
 </section>
@@ -1019,15 +1011,15 @@
             <h3>Offline Metrics (Accuracy)</h3>
             <div class="metric-item">
                 <h4>Precision@K</h4>
-                <p>Calculates how many of the top-K recommended items were actually relevant to the user.</p>
+                <p>Out of the top K recommended items, how many did the user actually interact with?</p>
             </div>
             <div class="metric-item">
                 <h4>Recall@K</h4>
-                <p>Calculates how many of the user's total liked items appeared in the top-K recommendations.</p>
+                <p>Out of all items the user liked, how many appeared in the top K recommendations?</p>
             </div>
             <div class="metric-item">
                 <h4>NDCG</h4>
-                <p>Normalized Discounted Cumulative Gain. Evaluates if the absolute best items are ranked the highest in the list.</p>
+                <p>Normalized Discounted Cumulative Gain. Measures whether the best items appear at the top of the list.</p>
             </div>
         </div>
 
@@ -1036,15 +1028,15 @@
             <h3>Online Metrics (Business)</h3>
             <div class="metric-item">
                 <h4>Click-Through Rate (CTR)</h4>
-                <p>Measures immediate engagement: Do users actually click on the provided recommendations?</p>
+                <p>How often users click on a recommended item.</p>
             </div>
             <div class="metric-item">
                 <h4>Conversion Rate</h4>
-                <p>Measures subsequent action: Do those algorithmic clicks ultimately lead to successful purchases?</p>
+                <p>How often a click leads to a purchase.</p>
             </div>
             <div class="metric-item">
-                <h4>AOV & CLV</h4>
-                <p>Average Order Value and Customer Lifetime Value. Do recommendations increase overall spending and long-term loyalty?</p>
+                <h4>AOV &amp; CLV</h4>
+                <p>Whether recommendations increase the amount spent per order (AOV) and long-term customer loyalty (CLV).</p>
             </div>
         </div>
     </div>
@@ -1061,7 +1053,6 @@
         <!-- Product 1 -->
         <div class="product-card" onclick="addToCart('Collaborative Filtering')">
             <div class="product-image">
-                <!-- Abstract SVGs representing the algorithm -->
                 <svg viewBox="0 0 100 100" fill="none" stroke="var(--text-main)" stroke-width="1">
                     <circle cx="35" cy="50" r="25" />
                     <circle cx="65" cy="50" r="25" />
@@ -1071,7 +1062,7 @@
             <div class="product-info">
                 <div>
                     <h3 class="product-title">Collaborative Filtering</h3>
-                    <p class="product-desc">Finds users with similar behavior. Utilizes Item-Based or User-Based methodologies. Won the Netflix Prize via Matrix Factorization.</p>
+                    <p class="product-desc">Finds users with similar behavior and recommends what they liked. Does not need product information. Includes User-Based CF, Item-Based CF, and Matrix Factorization.</p>
                 </div>
                 <span class="product-tag">Foundation</span>
             </div>
@@ -1090,7 +1081,7 @@
             <div class="product-info">
                 <div>
                     <h3 class="product-title">Content-Based</h3>
-                    <p class="product-desc">Matches items to user profiles via intrinsic features (TF-IDF, Word2Vec, BERT). Excellent for cold-start items with no interaction history.</p>
+                    <p class="product-desc">Matches items to a user profile built from item features (TF-IDF, Word2Vec, BERT). Especially useful for new items that have no interaction history yet.</p>
                 </div>
                 <span class="product-tag">Precision</span>
             </div>
@@ -1108,7 +1099,7 @@
             <div class="product-info">
                 <div>
                     <h3 class="product-title">The Hybrid Ensemble</h3>
-                    <p class="product-desc">Combines multiple methods (Weighted, Switching, Cascade). Reduces individual algorithmic weaknesses. Used heavily by Netflix.</p>
+                    <p class="product-desc">Combines collaborative and content-based methods to reduce their individual weaknesses. Strategies include Weighted, Switching, and Cascade approaches. Used by Netflix.</p>
                 </div>
                 <span class="product-tag">Advanced</span>
             </div>
@@ -1126,7 +1117,7 @@
             <div class="product-info">
                 <div>
                     <h3 class="product-title">Knowledge-Based</h3>
-                    <p class="product-desc">Uses explicit rules and requirements. Engineered specifically for highly complex product spaces needing detailed domain knowledge.</p>
+                    <p class="product-desc">Uses rules and user requirements to filter items. Good for expensive or complex products. Requires a detailed knowledge base to be built first.</p>
                 </div>
                 <span class="product-tag">Specialty</span>
             </div>
@@ -1160,28 +1151,28 @@
         <div class="featured-details">
             <span class="text-sm text-muted">The Haute Couture of RecSys</span>
             <h2>Deep Learning Suite</h2>
-            <p style="color: #ccc;">Replacing standard dot products with advanced neural architectures. Engineered for scale and nuance.</p>
+            <p style="color: #ccc;">Neural networks that learn complex, non-linear patterns in user behavior that simpler models cannot capture.</p>
 
             <ul class="dl-list">
                 <li>
                     <span class="serif" style="font-size: 1.2rem;">Neural CF (NCF)</span>
-                    <span class="text-sm text-muted">User-item interaction</span>
+                    <span class="text-sm text-muted">Replaces dot product with neural net</span>
                 </li>
                 <li>
-                    <span class="serif" style="font-size: 1.2rem;">Wide & Deep</span>
-                    <span class="text-sm text-muted">Linear + Deep generalization</span>
+                    <span class="serif" style="font-size: 1.2rem;">Wide &amp; Deep</span>
+                    <span class="text-sm text-muted">Memorization + generalization (Google Play)</span>
                 </li>
                 <li>
                     <span class="serif" style="font-size: 1.2rem;">Sequential (SASRec)</span>
-                    <span class="text-sm text-muted">Attention mechanisms over time</span>
+                    <span class="text-sm text-muted">Attention over interaction sequences</span>
                 </li>
                 <li>
                     <span class="serif" style="font-size: 1.2rem;">Two-Tower Models</span>
-                    <span class="text-sm text-muted">Fast nearest-neighbor search</span>
+                    <span class="text-sm text-muted">Fast nearest-neighbor search at serving</span>
                 </li>
                 <li>
                     <span class="serif" style="font-size: 1.2rem;">LLM-Based</span>
-                    <span class="text-sm text-muted">Natural language processing</span>
+                    <span class="text-sm text-muted">Text-driven, useful when behavioral data is limited</span>
                 </li>
             </ul>
 
@@ -1207,27 +1198,27 @@
         <tbody>
         <tr>
             <td class="stage">Awareness</td>
-            <td>Show relevant categories to new users</td>
+            <td>Show new users relevant categories they may not know about</td>
             <td><i class="italic text-muted">"Trending in your area"</i></td>
         </tr>
         <tr>
             <td class="stage">Consideration</td>
-            <td>Surface alternatives and similar constructs</td>
+            <td>Show alternatives and similar products</td>
             <td><i class="italic text-muted">"Customers also viewed"</i></td>
         </tr>
         <tr>
             <td class="stage">Conversion</td>
-            <td>Reduce decision time, prompt add-ons</td>
+            <td>Reduce decision time; encourage adding more items</td>
             <td><i class="italic text-muted">"Frequently bought together"</i></td>
         </tr>
         <tr>
             <td class="stage">Retention</td>
-            <td>Re-engage with personalized histories</td>
-            <td><i class="italic text-muted">"Because you bought X..."</i></td>
+            <td>Re-engage users with personalized offers</td>
+            <td><i class="italic text-muted">"Because you bought X, you might like Y"</i></td>
         </tr>
         <tr>
             <td class="stage">Advocacy</td>
-            <td>Recommend shareable or popular items</td>
+            <td>Recommend popular or shareable items</td>
             <td><i class="italic text-muted">"Share this list with friends"</i></td>
         </tr>
         </tbody>
@@ -1247,11 +1238,11 @@
             <div class="mockup-desc">
                 <span class="brand">Case 01 / Retail</span>
                 <h3>Amazon</h3>
-                <p class="text-muted"><strong>Item-Based Collaborative Filtering.</strong><br><br>With tens of millions of users, computing item-to-item similarity is far faster and more consistent than user-to-user comparisons. This engineering trade-off sacrifices some user-specific flexibility but dramatically improves scalability and latency.</p>
+                <p class="text-muted"><strong>Item-Based Collaborative Filtering.</strong><br><br>With tens of millions of users, calculating similarities between all pairs of users was too slow. Item-item relationships are more stable and faster to compute. This engineering trade-off sacrifices some user-specific flexibility but dramatically improves scalability and latency. Reported to generate around 35% of total revenue.</p>
             </div>
             <div class="mockup-ui">
                 <div class="ui-amazon-hq">
-                    <h2 class="amazom-section-title">Other products viewed by customers who viewed this product.</h2>
+                    <h2 class="amazom-section-title">Customers who bought this item also bought</h2>
                     <div class="amazon-grid">
                         <div class="amazon-card">
                             <div class="amazon-img">
@@ -1291,6 +1282,53 @@
                                 <span class="count">18,932</span>
                             </div>
                             <div class="amazon-price"><span class="currency">$</span><span class="whole">109</span><span class="fraction">99</span></div>
+                        </div>
+                        <div class="amazon-card">
+                            <div class="amazon-img">
+                                <img src="https://m.media-amazon.com/images/I/71pNzi4ROJL._AC_SL1500_.jpg" alt="Razer BlackShark V2 HyperSpeed">
+                            </div>
+                            <div class="amazon-title">Razer Kraken X Lite - Ultra Lightweight Gaming Headset - Surround Sound - Lightweight Aluminum Frame - Flexible Cardioid Microphone - Compatible with PC, PS4, PS5, Switch, Xbox Series, Mobile - Black</div>
+                            <div class="amazon-rating">
+                                <span class="stars">★★★★<span class="empty">★</span></span>
+                                <span class="count">5,376</span>
+                            </div>
+                            <div class="amazon-price"><span class="currency">$</span><span class="whole">145</span><span class="fraction">00</span></div>
+                            <div class="amazon-prime">
+                                <img src="https://m.media-amazon.com/images/G/41/marketing/prime/2022PrimeBrand/Logos/Prime_Logo_RGB_Prime_Blue_MASTER._CB542734514_.png" alt="Amazon Prime">
+                            </div>
+                        </div>
+                        <div class="amazon-card">
+                            <div class="amazon-img">
+                                <img src="https://m.media-amazon.com/images/I/61KmVBD4ZfL._AC_SL1500_.jpg" alt="Apple AirPods Pro">
+                            </div>
+                            <div class="amazon-title">JBL Quantum 100M2, Wired Gaming Headset, Black</div>
+                            <div class="amazon-rating">
+                                <span class="stars">★★<span class="empty">★★★</span></span>
+                                <span class="count">3,952</span>
+                            </div>
+                            <div class="amazon-price"><span class="currency">$</span><span class="whole">179</span><span class="fraction">99</span></div>
+                        </div>
+                        <div class="amazon-card">
+                            <div class="amazon-img">
+                                <img src="https://m.media-amazon.com/images/I/61QgMFQlh4L._AC_SL1200_.jpg" alt="Bose Headphones">
+                            </div>
+                            <div class="amazon-title">Corsair HS35 Stereo Gaming Headset, Detachable Microphone, Discord Certified, Compatible with PC/Xbox One/Xbox Series X and S/PS5 and PS4/Nintento Switch/Mobile Phones, Black (CA-9011195-EU)</div>
+                            <div class="amazon-rating">
+                                <span class="stars">★★★<span class="empty">★★</span></span>
+                                <span class="count">4,932</span>
+                            </div>
+                            <div class="amazon-price"><span class="currency">$</span><span class="whole">64</span><span class="fraction">99</span></div>
+                        </div>
+                        <div class="amazon-card">
+                            <div class="amazon-img">
+                                <img src="https://m.media-amazon.com/images/I/813xnzGz4DL._AC_SL1500_.jpg" alt="Razer BlackShark V2 HyperSpeed">
+                            </div>
+                            <div class="amazon-title">HP Pavilion Gaming 600 Gaming Headset, 50mm</div>
+                            <div class="amazon-rating">
+                                <span class="stars">★★★★<span class="empty">★</span></span>
+                                <span class="count">616</span>
+                            </div>
+                            <div class="amazon-price"><span class="currency">$</span><span class="whole">89</span><span class="fraction">99</span></div>
                             <div class="amazon-prime">
                                 <img src="https://m.media-amazon.com/images/G/41/marketing/prime/2022PrimeBrand/Logos/Prime_Logo_RGB_Prime_Blue_MASTER._CB542734514_.png" alt="Amazon Prime">
                             </div>
@@ -1305,7 +1343,7 @@
             <div class="mockup-desc">
                 <span class="brand">Case 02 / Streaming</span>
                 <h3>Netflix</h3>
-                <p class="text-muted"><strong>Hybrid Personalization.</strong><br><br>Multiple algorithms working together. Netflix treats recommendation as a full-ranking optimization problem across the entire UX, not just a list. Even the thumbnail artwork is algorithmically selected per user to reduce overall churn.</p>
+                <p class="text-muted"><strong>Hybrid Personalization.</strong><br><br>Multiple algorithms working together: one ranks all titles for each user, one orders the rows on the homepage, and one decides which thumbnail image to display for each title. Personalization goes beyond selecting content, it also affects how content is presented visually. Estimated to save over $1 billion per year by reducing churn.</p>
             </div>
             <div class="mockup-ui">
                 <div class="ui-netflix-hq">
@@ -1348,7 +1386,7 @@
             <div class="mockup-desc">
                 <span class="brand">Case 03 / Audio</span>
                 <h3>Spotify</h3>
-                <p class="text-muted"><strong>Context-Aware Recommendation.</strong><br><br>Discover Weekly finds 30 personalized songs every Monday by matching listening histories. It combines raw audio analysis (tempo, energy), collaborative filtering (playlist co-occurrence), and NLP signals from playlist names.</p>
+                <p class="text-muted"><strong>Context-Aware Recommendation.</strong><br><br>Discover Weekly creates 30 personalized songs every Monday by combining three signal types: collaborative filtering based on playlist co-occurrence patterns, audio analysis of track features such as tempo, energy, and mood, and NLP on playlist names and user-generated descriptions. Context also plays a role, learning that users prefer high-energy music during commutes and slower music in the evening.</p>
             </div>
             <div class="mockup-ui">
                 <div class="ui-spotify-hq">
@@ -1357,7 +1395,7 @@
                         <div class="dw-info">
                             <span class="spotify-type">Playlist</span>
                             <h1 class="spotify-title">Discover Weekly</h1>
-                            <p class="spotify-desc">Your shortcut to hidden gems, deep cuts, and future faves, updated every Monday. You’ll know when you hear it.</p>
+                            <p class="spotify-desc">Your shortcut to hidden gems, deep cuts, and future faves, updated every Monday. You'll know when you hear it.</p>
                             <div class="spotify-meta">Spotify <span>• 30 songs, 1 hr 45 min</span></div>
                         </div>
                     </div>
@@ -1371,7 +1409,6 @@
 
                         <!-- 2. Album Thumbnail (New) -->
                         <div class="spotify-thumbnail">
-                            <!-- Using an abstract image that resembles the fire/smoke in the screenshot -->
                             <img src="https://images.unsplash.com/photo-1618331835717-801e976710b2?auto=format&fit=crop&w=100&q=80" alt="Album Art">
                         </div>
 
@@ -1499,8 +1536,8 @@
 <!-- Critical Analysis / FAQ -->
 <section id="analysis" class="reveal">
     <div class="section-header">
-        <h2>Care & Handling</h2>
-        <span class="text-sm text-muted">System Limitations & Analysis</span>
+        <h2>Care &amp; Handling</h2>
+        <span class="text-sm text-muted">System Limitations &amp; Analysis</span>
     </div>
 
     <div class="faq-container">
@@ -1510,7 +1547,7 @@
                 <span>+</span>
             </button>
             <div class="faq-answer">
-                <p>New users possess no behavioral data; new products lack interaction history. Algorithmic quality suffers when first impressions matter most. Addressed via Hybrid systems and onboarding questionnaires to build initial heuristic profiles.</p>
+                <p>When a new user joins a platform, the system has no behavioral data about them. Similarly, when a new product is added, there is no co-purchase or co-view history to work with. Recommendation quality is poor precisely when a good first impression matters most. Hybrid systems that use content-based filtering as a fallback help reduce this problem, and some platforms ask new users to rate a few items during onboarding to collect initial preference data.</p>
             </div>
         </div>
 
@@ -1520,17 +1557,17 @@
                 <span>+</span>
             </button>
             <div class="faq-answer">
-                <p>Systems recursively display pre-validated preferences, showing users more of what they already like, narrowing discovery over time. Injecting 'serendipity' helps, but creates a relevance trade-off; too much diversity frustrates users.</p>
+                <p>Recommendation systems tend to show users more of what they have already shown interest in. Over time, this can narrow what users discover. Some platforms try to address this by deliberately including diverse or unexpected items — introducing 'serendipity' into the system. However, there is a trade-off: too much diversity reduces relevance and can frustrate users.</p>
             </div>
         </div>
 
         <div class="faq-item">
             <button class="faq-question" onclick="toggleFaq(this)">
-                Privacy & Fairness
+                Privacy &amp; Fairness
                 <span>+</span>
             </button>
             <div class="faq-answer">
-                <p>Large-scale data collection raises GDPR concerns. Furthermore, historical biases inherent in training data are learned and repeated by models. Algorithmic fairness remains an active, critical research domain (Tintarev, 2022).</p>
+                <p>Recommendation systems depend on collecting large amounts of user data. This creates privacy concerns, especially under regulations like the EU's General Data Protection Regulation (GDPR), which requires transparency about data use and the right to deletion. There is also a fairness concern: if historical data reflects biases, the recommendation model will learn and repeat them. Addressing algorithmic fairness is an active area of research (Tintarev, 2022).</p>
             </div>
         </div>
     </div>
@@ -1541,7 +1578,7 @@
     <div class="footer-logo">Maison des Algorithmes</div>
 
     <div class="footer-conclusion">
-        <p>Recommendation systems are core to modern e-commerce marketing, enabling personalized experiences at scale. The field has evolved from simple CF (1990s) through hybrid deep learning to LLM-based approaches. Evidence from giants confirms direct impact on revenue, churn, and satisfaction. Moving forward, responsible design, transparency, fairness, and privacy safeguards are increasingly paramount.</p>
+        <p>Recommendation systems have become a core part of e-commerce marketing, enabling personalized experiences at scale. The field has evolved from simple memory-based collaborative filtering in the 1990s to complex hybrid deep learning systems today, and is now entering a new phase with the integration of large language models. Evidence from Amazon, Netflix, and Spotify shows that well-designed systems directly increase revenue, reduce churn, and improve customer satisfaction. As these systems become more powerful, responsible design — with transparency, fairness, and privacy safeguards — becomes increasingly paramount.</p>
     </div>
 
     <div class="footer-meta">
